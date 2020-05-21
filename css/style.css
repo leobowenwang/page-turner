@@ -4,29 +4,26 @@ header {
     font-family: 'DM Mono', monospace;
 }
 
-.navbar {
-    height: 80px;
+.navbar{
+    text-align: center;
 }
 
 .logo {
+    display: inline-block;
     height: 80px;
 }
 
 .icon {
     height: 40px;
+    margin-bottom: 15px;
 }
 
-nav > a {
-    display: inline-block;
-    margin: 35px 2%; /*top left&right*/
-    font-size: 25px;
-    color: rgb(112, 112, 112);
-    text-decoration: none;
-}
+
+
+
 
 
 /*footer*/
-
 footer {
     height: 100px;
     width: 100%;
@@ -53,22 +50,4 @@ footer > a {
 .main {
     width: 50%;
     margin: 50px auto;
-}
-
-/* Bootstrap 4 text input with search icon */
-
-.has-search .form-control {
-    padding-left: 2.375rem;
-}
-
-.has-search .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #aaa;
 }
