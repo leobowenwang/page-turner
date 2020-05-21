@@ -8,16 +8,17 @@ header {
     height: 80px;
 }
 
-.logo:hover{
+.logo:hover {
     opacity: 0.6;
     transition: 0.5s;
 }
 
-.navbar{
+.navbar {
     text-align: center;
+    font-size: larger;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     opacity: 0.6;
     transition: 0.5s;
 }
@@ -31,26 +32,46 @@ header {
     transition: 0.5s;
 }
 
-.has-search{
+.has-search {
     margin-top: 15px;
 }
 
-/*footer*/
-.page-footer{
-    background-color: rgb(121, 159, 203);
-    color: white;
+/*body container for desktop*/
+@media (min-width: 1200px) {
+    #container {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
-.footer-copyright{
+
+/*index slideshow*/
+.carousel-inner {
+    width: 100%;
+    max-height: 400px;
+}
+
+/*footer*/
+.page-footer {
+    background-color: rgb(121, 159, 203);
+    color: white;
+    font-size: small;
+}
+.page-footer h5{
+    font-size: medium;
+}
+
+.footer-copyright {
     background-color: rgb(97, 118, 143);
 }
 
-.list-unstyled a{
+.list-unstyled a {
     color: white;
     text-decoration: none;
 }
 
-.list-unstyled a:hover{
+.list-unstyled a:hover {
     transition: 0.5s;
     text-decoration: none;
 }
