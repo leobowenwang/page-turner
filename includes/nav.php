@@ -23,6 +23,7 @@
 
             <a class="nav-link" href="ebooks.php"><img class="icon" src="img/account.png" alt="account"></a>
             <a class="nav-link" href="ebooks.php"><img class="icon" src="img/shopping_cart.png" alt="shopping-cart"></a>
+
             <div class="form-group has-search">
                 <span class="fa fa-search form-control-feedback"></span>
                 <input type="text" class="form-control" placeholder="Search">
