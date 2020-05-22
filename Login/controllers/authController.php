@@ -85,7 +85,7 @@ if(isset($_POST['signup-btn'])){ //we take from Post form in signup.php
           $mail->Password = "tquxsixczkoeivql";
 
           $mail->setFrom("offiziellpageturner@gmail.com", "PageTurner");
-          $mail->addAddress("offiziellpageturner@gmail.com", "PageTurner");
+          $mail->addAddress($_SESSION['email'], "PageTurner");
 
         $body = '<!DOCTYPE html>
         <html lang="en">
