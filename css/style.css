@@ -1,4 +1,3 @@
-
 /*start of header*/
 header {
     width: 100%;
@@ -36,6 +35,7 @@ header {
 .has-search {
     margin-top: 15px;
 }
+
 /*end of header*/
 
 /*start of body container for desktop*/
@@ -46,6 +46,7 @@ header {
         margin-right: 10%;
     }
 }
+
 /*end of body container for desktop*/
 
 /*start of index slideshow*/
@@ -53,6 +54,7 @@ header {
     width: 100%;
     max-height: 400px;
 }
+
 /*end of index slideshow*/
 
 /*login*/
@@ -60,9 +62,11 @@ header {
     background-image: url('https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80');
     background-size: cover;
 }
-.login{
+
+.login {
     background-color: white;
 }
+
 .form-div {
     margin: 50px auto 50px;
     padding: 25px 15px 10px 15px;
@@ -97,6 +101,7 @@ form p {
     color: white;
     transition: 0.5s;
 }
+
 /*end of login*/
 
 /*start of footer*/
@@ -105,16 +110,18 @@ form p {
     color: white;
     font-size: small;
 }
-.page-footer a{
+
+.page-footer a {
     text-decoration: none;
     color: white;
 }
-.page-footer a:hover{
+
+.page-footer a:hover {
     text-decoration: none;
     transition: 0.5s;
 }
 
-.page-footer h5{
+.page-footer h5 {
     font-size: medium;
 }
 
@@ -122,7 +129,7 @@ form p {
     background-color: rgb(97, 118, 143);
 }
 
-.list-unstyled a{
+.list-unstyled a {
     color: white;
     text-decoration: none;
 }
@@ -131,4 +138,5 @@ form p {
     text-decoration: none;
     transition: 0.5s;
 }
+
 /*end of footer*/

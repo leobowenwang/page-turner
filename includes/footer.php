@@ -31,13 +31,13 @@
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">About Us</a>
+                        <a href="/page-turner/about.php">About Us</a>
                     </li>
                     <li>
-                        <a href="#!">FAQ</a>
+                        <a href="/page-turner/faq.php">FAQ</a>
                     </li>
                     <li>
-                        <a href="#!">AGB</a>
+                        <a href="/page-turner/agb.php">AGB</a>
                     </li>
                 </ul>
 
