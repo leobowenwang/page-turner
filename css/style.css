@@ -1,4 +1,5 @@
-/*header*/
+
+/*start of header*/
 header {
     width: 100%;
     font-family: 'DM Mono', monospace;
@@ -35,8 +36,9 @@ header {
 .has-search {
     margin-top: 15px;
 }
+/*end of header*/
 
-/*body container for desktop*/
+/*start of body container for desktop*/
 @media (min-width: 1200px) {
     #container {
         width: 80%;
@@ -44,20 +46,74 @@ header {
         margin-right: 10%;
     }
 }
+/*end of body container for desktop*/
 
-
-/*index slideshow*/
+/*start of index slideshow*/
 .carousel-inner {
     width: 100%;
     max-height: 400px;
 }
+/*end of index slideshow*/
 
-/*footer*/
+/*login*/
+.card-img-left {
+    width: 45%;
+    /* Link to your background image using in the property below! */
+    background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+    background-size: cover;
+}
+
+.form-div {
+    margin: 50px auto 50px;
+    padding: 25px 15px 10px 15px;
+    border: 1px solid lightblue;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+form p {
+    font-size: 0.89em;
+}
+
+.form-div.login {
+    margin-top: 100px;
+}
+
+.logout {
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logout:hover {
+    background-color: red;
+    color: white;
+    transition: 0.5s;
+}
+/*end of login*/
+
+/*start of footer*/
 .page-footer {
     background-color: rgb(121, 159, 203);
     color: white;
     font-size: small;
 }
+.page-footer a{
+    text-decoration: none;
+    color: white;
+}
+.page-footer a:hover{
+    text-decoration: none;
+    transition: 0.5s;
+}
+
 .page-footer h5{
     font-size: medium;
 }
@@ -66,14 +122,13 @@ header {
     background-color: rgb(97, 118, 143);
 }
 
-.list-unstyled a {
+.list-unstyled a{
     color: white;
     text-decoration: none;
 }
 
 .list-unstyled a:hover {
-    transition: 0.5s;
     text-decoration: none;
+    transition: 0.5s;
 }
-
-
+/*end of footer*/

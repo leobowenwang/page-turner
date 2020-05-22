@@ -13,7 +13,9 @@
 
                 <!-- Content -->
                 <h5 class="text-uppercase">Page Turner</h5>
-                <p>Gib mir Einser</p>
+                Favoritenstraße 226, 1100 Wien<br>
+                <a href="tel:+62896706255135">01 60668776600</a><br>
+                <p><a href="mailto:offiziellpageturner@gmail.com">offiziellpageturner@gmail.com</a></p>
 
             </div>
             <!-- Grid column -->
