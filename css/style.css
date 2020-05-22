@@ -38,8 +38,16 @@ header {
 
 /*end of header*/
 
-/*start of body container for desktop*/
-@media (min-width: 1200px) {
+/*container for laptop*/
+@media (min-width: 1280px) and (max-width: 1599px) {
+    #container {
+        width: 95%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+    }
+}
+/*container for desktop*/
+@media (min-width: 1600px) {
     #container {
         width: 80%;
         margin-left: 10%;
@@ -47,8 +55,8 @@ header {
     }
 }
 
-/*end of body container for desktop*/
-#booksimg{
+
+#booksimg {
     border-radius: 10px;
     height: 100px;
 }

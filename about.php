@@ -12,13 +12,13 @@ include('./includes/nav.php');
         <!-- Section heading -->
         <h2 class="h1-responsive font-weight-bold my-5">Our Team Members</h2>
         <!-- Section description -->
-        <p class="grey-text w-responsive mx-auto mb-5">Webtech 2020</p>
+        <p class="grey-text w-responsive mx-auto mb-5">Webtech 2020 Group H</p>
 
         <!-- Grid row -->
         <div class="row">
 
             <!-- Grid column -->
-            <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+            <div class="col-lg col-md-4 col-sm-6">
                 <div class="avatar mx-auto">
                     <img src="img/team/varli.jpg"
                          class="rounded-circle z-depth-1"
@@ -30,7 +30,7 @@ include('./includes/nav.php');
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
+            <div class="col-lg col-md-4 col-sm-6">
                 <div class="avatar mx-auto">
                     <img src="img/team/zdarsky.png"
                          class="rounded-circle z-depth-1"
@@ -44,7 +44,7 @@ include('./includes/nav.php');
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
+            <div class="col-lg col-md-4 col-sm-6">
                 <div class="avatar mx-auto">
                     <img src="img/team/stoeckl.png"
                          class="rounded-circle z-depth-1"
@@ -57,7 +57,7 @@ include('./includes/nav.php');
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg  col-md-6 col-sm-6">
                 <div class="avatar mx-auto">
                     <img src="img/team/wang.jpeg"
                          class="rounded-circle z-depth-1"
@@ -70,7 +70,7 @@ include('./includes/nav.php');
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg col-md-6 col-sm-6">
                 <div class="avatar mx-auto">
                     <img src="img/team/vrdoljak.jpeg"
                          class="rounded-circle z-depth-1"
