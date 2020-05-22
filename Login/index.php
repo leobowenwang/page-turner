@@ -1,7 +1,7 @@
 <?php 
 require_once 'controllers/authController.php'; //session is started there, other things set here like set Session
-include('C:\xampp\htdocs\LoginFolder\page-turner\includes/header.php'); //PLEASE CHANGE PATH
-include('C:\xampp\htdocs\LoginFolder\page-turner\includes/nav.php');
+include('C:\xampp\htdocs\page-turner\includes/header.php'); //PLEASE CHANGE PATH
+include('C:\xampp\htdocs\page-turner\includes/nav.php');
 
 
 //verify user using
@@ -72,5 +72,5 @@ if(!isset($_SESSION['id'])){
 </html>
 
 <?php
-include('C:\xampp\htdocs\LoginFolder\page-turner\includes\footer.php');
+include('C:\xampp\htdocs\page-turner\includes\footer.php');
 ?>

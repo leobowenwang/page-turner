@@ -1,7 +1,7 @@
 <?php 
 require_once 'controllers/authController.php';
-include('C:\xampp\htdocs\LoginFolder\page-turner\includes/header.php');
-include('C:\xampp\htdocs\LoginFolder\page-turner\includes/nav.php');
+include('C:\xampp\htdocs\page-turner\includes/header.php');
+include('C:\xampp\htdocs\page-turner\includes/nav.php');
 ?> 
 
 
@@ -66,5 +66,5 @@ include('C:\xampp\htdocs\LoginFolder\page-turner\includes/nav.php');
 </html>
 
 <?php
-include('C:\xampp\htdocs\LoginFolder\page-turner\includes\footer.php');
+include('C:\xampp\htdocs\page-turner\includes\footer.php');
 ?>

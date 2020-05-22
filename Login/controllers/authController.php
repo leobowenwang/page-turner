@@ -85,7 +85,7 @@ if(isset($_POST['signup-btn'])){ //we take from Post form in signup.php
           $mail->Password = "tquxsixczkoeivql";
 
           $mail->setFrom("offiziellpageturner@gmail.com", "PageTurner");
-          $mail->addAddress($_SESSION['email'], "PageTurner");
+          $mail->addAddress($_SESSION['email'], $username);
 
         $body = '<!DOCTYPE html>
         <html lang="en">
@@ -100,11 +100,11 @@ if(isset($_POST['signup-btn'])){ //we take from Post form in signup.php
         Thank you for signing up on our website. Click on the link below for verification.</p>
         </div>
         
-        <a href="http://localhost/loginfolder/index.php?token=' . $token . '">Verify your email address</a>
+        <a href="http://localhost/page-turner/Login/index.php?token=' . $token . '">Verify your email address</a> 
         
             </body>
         </body>
-        </html>';
+        </html>'; //Achtung auf Pfad bei href!!!
 
           $mail->isHtml(true);
           $mail->Subject = "Verify your Email Address";
