@@ -9,6 +9,10 @@ include('./includes/nav.php');
 
     Looks pretty empty in here, try to add some books!
 
+    <script>
+        addBookToShoppingCart();
+    </script>
+
 </div>
 </body>
 <?php
