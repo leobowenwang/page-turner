@@ -9,15 +9,15 @@ function getBookLists(isbn) { // Query the book database by ISBN code
         .then(function (results) {
             var book = results.items[0];
 
-            var vtitle = (book["volumeInfo"]["title"]);
-            var vauthors = (book["volumeInfo"]["authors"]);
-            var vdescription = (book["volumeInfo"]["description"]);
-            var vprintType = (book["volumeInfo"]["printType"]);
-            var vpageCount = (book["volumeInfo"]["pageCount"]);
-            var vpublisher = (book["volumeInfo"]["publisher"]);
-            var vpublishedDate = (book["volumeInfo"]["publishedDate"]);
-            var vaverageRating = (book["volumeInfo"]["averageRating"]);
-            var vimg = (book["volumeInfo"]["imageLinks"]["thumbnail"]);
+            var title = (book["volumeInfo"]["title"]);
+            var authors = (book["volumeInfo"]["authors"]);
+            var description = (book["volumeInfo"]["description"]);
+            var printType = (book["volumeInfo"]["printType"]);
+            var pageCount = (book["volumeInfo"]["pageCount"]);
+            var publisher = (book["volumeInfo"]["publisher"]);
+            var publishedDate = (book["volumeInfo"]["publishedDate"]);
+            var averageRating = (book["volumeInfo"]["averageRating"]);
+            var img = (book["volumeInfo"]["imageLinks"]["thumbnail"]);
 
             //to create in html
             var book = document.createElement("book");
@@ -26,31 +26,25 @@ function getBookLists(isbn) { // Query the book database by ISBN code
             book.innerHTML = (
                 "<div class=\"row\">\n" +
                 "            <div class=\"col-md\">\n" +
-                "                <a href=\"#\">\n" +
-                "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 300px' src='" + vimg + "' alt='"+vtitle+"'>\n" +
+                "                <a href='/page-turner/books/" + isbn + "'>\n" +
+                "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 300px' src='" + img + "' alt='" + title + "'>\n" +
                 "                </a>\n" +
                 "            </div>\n" +
                 "            <div class=\"col-md\">\n" +
-                "                <h3>" + vtitle + "</h3>\n" +
-                "                <h3><small>" + vauthors + "</small></h3>\n" +
-                "                <p>" + vdescription + "</p>\n" +
-                "                <a class=\"btn btn-primary\" href='/page-turner/books/"+isbn+"'>View Project</a>\n" +
-                //    "                <br>Type: " + vprintType + "\n" +
-                "                <br><small>Publisher: " + vpublisher + "</small>\n" +
-                "                <br><small>Published Date: " + vpublishedDate + "</small>\n" +
-                "                <br><small>Rating: " + vaverageRating + "/5</small>\n" +
+                "                <h3>" + title + "</h3>\n" +
+                "                <h3><small>" + authors + "</small></h3>\n" +
+                "                <p>" + description + "</p>\n" +
+                "                <a class=\"btn btn-primary\" href='/page-turner/books/" + isbn + "'>View Details</a>\n" +
+                //    "                <br>Type: " + printType + "\n" +
+                "                <br><small>Publisher: " + publisher + "</small>\n" +
+                "                <br><small>Published Date: " + publishedDate + "</small>\n" +
+                "                <br><small>Rating: " + averageRating + "/5</small>\n" +
                 "            </div>" +
                 "</div>" +
                 " <hr>"
             );
 
             document.getElementById("books").appendChild(book);
-
-
-            //style
-            title.style.fontSize = "25px";
-            authors.style.fontSize = "20px";
-            img.style.height = "100px";
         });
 }
 
