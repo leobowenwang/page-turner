@@ -38,7 +38,7 @@ function getBookLists(isbn) { // Query the book database by ISBN code
                 //    "                <br>Type: " + vprintType + "\n" +
                 "                <br><small>Publisher: " + vpublisher + "</small>\n" +
                 "                <br><small>Published Date: " + vpublishedDate + "</small>\n" +
-                "                <br><small>Rating: " + vaverageRating + "</small>\n" +
+                "                <br><small>Rating: " + vaverageRating + "/5</small>\n" +
                 "            </div>" +
                 "</div>" +
                 " <hr>"

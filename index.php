@@ -36,81 +36,16 @@ include('./includes/nav.php');
             </a>
         </div>
 
-
-
-
-
-
-        <!-- Page Heading -->
-        <h1 class="my-4">Top Seller This Week
-        </h1>
-
-        <!-- Project One -->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-fluid mx-auto d-block mb-3 mb-md-0" src="img/books/001.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Love is a Dog From Hell</h3>
-                <h3><small>Charles Bukowski</small></h3>
-                <p>A classic in the Bukowski poetry canon, Love Is a Dog from Hell is a raw, lyrical, exploration of the
-                    exigencies, heartbreaks, and limits of love.</p>
-                <a class="btn btn-primary" href="#">View Project</a>
-            </div>
-        </div>
-        <!-- /.row -->
-
+        <br>
+        <h1 class="text-center">Top Seller</h1>
         <hr>
-
-        <!-- Project Two -->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-fluid mx-auto d-block mb-3 mb-md-0" src="img/books/002.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>What Matters Most is How Well You</h3>
-                <h3><small>Charles Bukowski</small></h3>
-                <p>This second posthumous collection from Charles Bukowski takes readers deep into the raw, wild vein of
-                    writing that extends from the early 70s to the 1990s.</p>
-                <a class="btn btn-primary" href="#">View Project</a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Project Three -->
-        <div class="row">
-            <div class="col-md-7">
-                <a href="#">
-                    <img class="img-fluid mx-auto d-block mb-3 mb-md-0" src="img/books/003.jpg" alt="">
-                </a>
-            </div>
-            <div class="col-md-5">
-                <h3>Hacking: Hacking For Beginners Guide On How To Hack, Computer Hacking, And The Basics Of Ethical
-                    Hacking</h3>
-                <h3><small>Josh Thompsons</small></h3>
-                <p>With Hacking: Hacking for Beginners Guide on How to Hack, Computer Hacking, and the Basics of Ethical
-                    Hacking, you'll learn everything you need to know to enter the secretive world of computer hacking.
-                    It contains proven steps and strategies on how to start your education and practice in the field of
-                    hacking and provides demonstrations of hacking techniques and actual code. It not only will teach
-                    you some fundamental basic hacking techniques, it will also give you the knowledge of how to protect
-                    yourself and your information from the prying eyes of other malicious Internet users.
-
-                    This book dives deep into basic security procedures you should follow to avoid being exploited.
-                    You’ll learn about identity theft, password security essentials, what to be aware of, and how
-                    malicious hackers are profiting from identity and personal data theft.</p>
-                <a class="btn btn-primary" href="#">View Project</a>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
+        <!--load books position-->
+        <p id="books"></p>
+        <script>
+            getBookLists(9781451648546);
+            getBookLists(9780061847011);
+            getBookLists(9783827324658);
+        </script>
 
         <!-- Pagination -->
         <ul class="pagination justify-content-center">
