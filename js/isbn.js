@@ -1,3 +1,59 @@
+function getBookLists(isbn) { // Query the book database by ISBN code
+    isbn = isbn;
+    apikey = "AIzaSyDkVS2k68mGg-33bPJvnBFsJewZAGLDqgo";
+
+    var url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&key=" + apikey;
+
+    var results = fetch(url)
+        .then(results => results.json())
+        .then(function (results) {
+            var book = results.items[0];
+
+            var vtitle = (book["volumeInfo"]["title"]);
+            var vauthors = (book["volumeInfo"]["authors"]);
+            var vdescription = (book["volumeInfo"]["description"]);
+            var vprintType = (book["volumeInfo"]["printType"]);
+            var vpageCount = (book["volumeInfo"]["pageCount"]);
+            var vpublisher = (book["volumeInfo"]["publisher"]);
+            var vpublishedDate = (book["volumeInfo"]["publishedDate"]);
+            var vaverageRating = (book["volumeInfo"]["averageRating"]);
+            var vimg = (book["volumeInfo"]["imageLinks"]["thumbnail"]);
+
+            //to create in html
+            var book = document.createElement("book");
+
+            //to display in html
+            book.innerHTML = (
+                "<div class=\"row\">\n" +
+                "            <div class=\"col-md\">\n" +
+                "                <a href=\"#\">\n" +
+                "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 300px' src='" + vimg + "' alt='"+vtitle+"'>\n" +
+                "                </a>\n" +
+                "            </div>\n" +
+                "            <div class=\"col-md\">\n" +
+                "                <h3>" + vtitle + "</h3>\n" +
+                "                <h3><small>" + vauthors + "</small></h3>\n" +
+                "                <p>" + vdescription + "</p>\n" +
+                "                <a class=\"btn btn-primary\" href='/page-turner/books/"+isbn+"'>View Project</a>\n" +
+                //    "                <br>Type: " + vprintType + "\n" +
+                "                <br><small>Publisher: " + vpublisher + "</small>\n" +
+                "                <br><small>Published Date: " + vpublishedDate + "</small>\n" +
+                "                <br><small>Rating: " + vaverageRating + "</small>\n" +
+                "            </div>" +
+                "</div>" +
+                " <hr>"
+            );
+
+            document.getElementById("books").appendChild(book);
+
+
+            //style
+            title.style.fontSize = "25px";
+            authors.style.fontSize = "20px";
+            img.style.height = "100px";
+        });
+}
+
 function getBookDetails(isbn) { // Query the book database by ISBN code
     isbn = isbn;
     apikey = "AIzaSyDkVS2k68mGg-33bPJvnBFsJewZAGLDqgo";
@@ -18,18 +74,8 @@ function getBookDetails(isbn) { // Query the book database by ISBN code
             var publishedDate = (book["volumeInfo"]["publishedDate"]);
             var averageRating = (book["volumeInfo"]["averageRating"]);
             var img = (book["volumeInfo"]["imageLinks"]["thumbnail"]);
-            /*
-                        document.getElementById("title").innerHTML = title;
-                        document.getElementById("subtitle").innerHTML = subtitle;
-                        document.getElementById("authors").innerHTML = authors;
-                        document.getElementById("printType").innerHTML = printType;
-                        document.getElementById("pageCount").innerHTML = pageCount;
-                        document.getElementById("publisher").innerHTML = publisher;
-                        document.getElementById("publishdate").innerHTML = publishedDate;
-                        document.getElementById("imageid").src = img;
-             */
-            //load books
 
+            //to display in html
             var vtitle = createElement("p");
             var vauthors = createElement("p");
             var vdescription = createElement("p");
@@ -60,15 +106,5 @@ function getBookDetails(isbn) { // Query the book database by ISBN code
             document.getElementById("books").appendChild(vpublishedDate);
             document.getElementById("books").appendChild(vaverageRating);
             document.getElementById("books").appendChild(vimg).src = img;
-
-            //style
-            vtitle.style.textAlign = "center";
-            vimg.style.height = "100px";
         });
 }
-
-function createElement(type) {
-    var element = document.createElement(type);
-    return element;
-}
-
