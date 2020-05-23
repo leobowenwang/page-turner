@@ -48,6 +48,10 @@ header {
 }
 
 /*end of body container for desktop*/
+#booksimg{
+    border-radius: 10px;
+    height: 100px;
+}
 
 /*start of index slideshow*/
 .carousel-inner {
