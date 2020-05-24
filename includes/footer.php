@@ -37,7 +37,7 @@
                         <a href="/page-turner/faq.php">FAQ</a>
                     </li>
                     <li>
-                        <a href="/page-turner/agb.php">AGB</a>
+                        <a href="/page-turner/terms.php">Terms and Services</a>
                     </li>
                 </ul>
 

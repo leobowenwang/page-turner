@@ -1,20 +1,10 @@
-<?php 
-require_once 'controllers/authController.php';
-include('C:\xampp\htdocs\page-turner\includes/header.php');
-include('C:\xampp\htdocs\page-turner\includes/nav.php');
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/page-turner/login/controllers/authController.php';
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/header.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 ?> 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <title>Register</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
     
 <div class="container">
@@ -66,5 +56,5 @@ include('C:\xampp\htdocs\page-turner\includes/nav.php');
 </html>
 
 <?php
-include('C:\xampp\htdocs\page-turner\includes\footer.php');
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/footer.php";
 ?>

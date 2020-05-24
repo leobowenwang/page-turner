@@ -4,14 +4,12 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 ?>
 
 <body>
-
 <div id="container">
+    <h1 class="text-center">Terms and Conditions</h1>
 
-    Looks pretty empty in here, try to add some books!
-
-    <script>
-        addBookToShoppingCart();
-    </script>
+    <object data="/page-turner/resources/TermsOfService.pdf" style="width:100%;height:800px">
+        <a href="/page-turner/resources/TermsOfService.pdf">PDF laden</a>
+    </object>
 
 </div>
 </body>

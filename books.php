@@ -1,7 +1,8 @@
 <?php
-include('./includes/header.php');
-include('./includes/nav.php');
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/header.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 ?>
+
 <body>
 <div class="container">
     <h1>Books</h1>
@@ -18,5 +19,6 @@ include('./includes/nav.php');
 </body>
 
 <?php
-include('./includes/footer.php');
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/footer.php";
 ?>
+
