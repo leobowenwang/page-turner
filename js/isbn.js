@@ -27,7 +27,7 @@ function getBookLists(isbn) {
       var books = document.createElement("p");
 
       //to display in html
-      book.innerHTML = (
+      books.innerHTML = (
         "<div class=\"row\">\n" +
         "            <div class=\"col-md\">\n" +
         "                <a href='/page-turner/books/" + isbn + "'>\n" +
