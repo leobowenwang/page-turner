@@ -1,6 +1,7 @@
-<?php require_once 'controllers/authController.php';
-include('C:\xampp\htdocs\page-turner\includes/header.php');
-include('C:\xampp\htdocs\page-turner\includes/nav.php');
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/page-turner/login/controllers/authController.php';
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/header.php";
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 ?>
 
 <body>
@@ -41,5 +42,5 @@ include('C:\xampp\htdocs\page-turner\includes/nav.php');
 </body>
 </html>
 <?php
-include('C:\xampp\htdocs\page-turner\includes\footer.php');
+include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/footer.php";
 ?>
