@@ -94,7 +94,7 @@ function getBookDetails(isbn) {
 
                 "            <div class=\"row  mb--60\">\n" +
                 "                <div class=\"col-lg-5 mb--30\">\n" +
-                "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 400px' src='" + img + "' alt='" + title + "'>\n" +
+                "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 400px' src='" + img + "' alt='" + title + "'><br>\n" +
                 "                </div>\n" +
                 "                <div class=\"col-lg-7\">\n" +
                 "                    <div class=\"product-details-info pl-lg--30 \">\n" +
@@ -105,14 +105,16 @@ function getBookDetails(isbn) {
                 "                            <li>Publisher: " + publisher + "</li>\n" +
                 "                            <li>Published Date: <span class=\"list-value\">  " + publishedDate + "</span></li>\n" +
                 "                            <li>ISBN: <span class=\"list-value\"> " + isbn + "</span></li>\n" +
+                "                            <li>Ratings: " + averageRating + "</li>\n" +
+
                 "                        </ul>\n" +
                 "                        <div class=\"price-block\">\n" +
                 "                        <div class=\"row\">\n" +
-                "                            <span class=\"price-new ml-3\"><h3>€ 73.79</h3></span>\n" +
-                "                            <del class=\"price-old ml-2 mt-2\"><h6>€ 91.86</h6></del>\n" +
+                "                            <span class=\"price-new ml-3\"><h3>25,69 €</h3></span>\n" +
+                "                            <del class=\"price-old ml-2 mt-2\"><h6>29,99 €</h6></del>\n" +
                 "                        </div>\n" +
                 "                        </div>\n" +
-                "                            Ratings: " + averageRating +
+
                 "                        <div class=\"row\">\n" +
                 "                            <div class=\"count ml-3 w-10\">" +
                 "                                <input type=\"number\" class=\"form-control text-center\" value=\"1\" min='1' >\n" +
@@ -131,7 +133,6 @@ function getBookDetails(isbn) {
                 "                    <li class=\"nav-item\">\n" +
                 "                        <a class=\"nav-link active\" id=\"tab1\" data-toggle=\"tab\" href=\"#tab-1\" role=\"tab\"\n" +
                 "                           aria-controls=\"tab-1\" aria-selected=\"true\">\n" +
-
                 "                            DESCRIPTION\n" +
                 "                        </a>\n" +
                 "                    </li>\n" +
