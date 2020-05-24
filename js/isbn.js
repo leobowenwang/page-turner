@@ -27,10 +27,10 @@ function getBookLists(isbn) {
       var books = document.createElement("p");
 
       //to display in html
-      books.innerHTML = (
+      book.innerHTML = (
         "<div class=\"row\">\n" +
         "            <div class=\"col-md\">\n" +
-        "                <a href=\"#\">\n" +
+        "                <a href='/page-turner/books/" + isbn + "'>\n" +
         "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 300px' src='" + img + "' alt='" + title + "'>\n" +
         "                </a>\n" +
         "            </div>\n" +
@@ -38,15 +38,16 @@ function getBookLists(isbn) {
         "                <h3>" + title + "</h3>\n" +
         "                <h3><small>" + authors + "</small></h3>\n" +
         "                <p>" + description + "</p>\n" +
-        "                <a class=\"btn btn-primary\" href='/page-turner/books/" + isbn + "'>View Project</a>\n" +
-        //    "                <br>Type: " + vprintType + "\n" +
+        "                <a class=\"btn btn-primary\" href='/page-turner/books/" + isbn + "'>View Details</a>\n" +
+        //    "                <br>Type: " + printType + "\n" +
         "                <br><small>Publisher: " + publisher + "</small>\n" +
         "                <br><small>Published Date: " + publishedDate + "</small>\n" +
-        "                <br><small>Rating: " + averageRating + "</small>\n" +
+        "                <br><small>Rating: " + averageRating + "/5</small>\n" +
         "            </div>" +
         "</div>" +
         " <hr>"
       );
+
 
 
       document.getElementById("books").appendChild(books); //appending
