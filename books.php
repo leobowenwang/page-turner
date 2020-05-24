@@ -4,7 +4,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 ?>
 
 <body>
-<div class="container">
+<div id="container">
     <h1>Books</h1>
     <hr>
     <!--load books position-->

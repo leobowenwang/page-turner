@@ -7,9 +7,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 
 <body>
     
-<div class="container">
+<div class="container bg">
     <div class="row">
-        <div class="col-md-4 offset-md-4 form-div">
+        <div class="col-md-4 offset-md-4 form-div login">
         <form action="signup.php" method="post">
         <h3 class = "text-center">Register  </h3>
 
