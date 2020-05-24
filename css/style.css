@@ -44,6 +44,15 @@ header {
 
 /*end of header*/
 
+/*first of body*/
+body{
+    /*for sticky footer*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/*end of body*/
+
 /*container for laptop*/
 @media (min-width: 1280px) and (max-width: 1599px) {
     #container {
@@ -121,6 +130,8 @@ form p {
     background-color: rgb(121, 159, 203);
     color: white;
     font-size: small;
+    /*for sticky footer*/
+    margin-top: auto;
 }
 
 .page-footer a {
@@ -150,5 +161,7 @@ form p {
     text-decoration: none;
     transition: 0.5s;
 }
+
+
 
 /*end of footer*/
