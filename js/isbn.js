@@ -33,7 +33,7 @@ function getBookLists(isbn) {
             books.innerHTML = (
                 "<div class=\"row\">\n" +
                 "            <div class=\"col\">\n" +
-                "                <a href='/page-turner/books/" + isbn + ".php'>\n" +
+                "                <a href='/page-turner/books/books/details.php?isbn=" + isbn + "'>\n" +
                 "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 300px' src='" + img + "' alt='" + title + "'>\n" +
                 "                </a>\n" +
                 "            </div>\n" +
@@ -42,7 +42,7 @@ function getBookLists(isbn) {
                 "                <h3><small>" + authors + "</small></h3>\n" +
                 "                <h4><small>" + categories + "</small></h4>\n" +
                 "                <p>" + description + "</p>\n" +
-                "                <a class=\"btn btn-primary\" href='/page-turner/books/" + isbn + ".php'>View Details</a>\n" +
+                "                <a class=\"btn btn-primary\" href='/page-turner/books/details.php?isbn=" + isbn + "'>View Details</a>\n" + //Frage, wie erstellen wir neue Seite mit Javascript Funktion
                 "                <br><small>Publisher: " + publisher + "</small>\n" +
                 "                <br><small>Published Date: " + publishedDate + "</small>\n" +
                 "                <br><small>Rating: " + averageRating + "/5</small>\n" +

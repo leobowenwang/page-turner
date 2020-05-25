@@ -68,14 +68,12 @@ if(isset($_POST['signup-btn'])){ //we take from Post form in signup.php
             $_SESSION['email'] = $email;
             $_SESSION['verified'] = $verified;
 
-            //sendVerificationEmail($email, $token);
-           
         require 'PHPMailer-master/src/Exception.php';
         require 'PHPMailer-master/src/PHPMailer.php';
         require 'PHPMailer-master/src/SMTP.php';
 
 
-    if(isset($_POST['signup-btn'])){
+    if(isset($_POST['signup-btn'])){ //email automated for Verification
           $to_email = $_SESSION['email'];
           $mail = new PHPMailer();
           $mail->isSMTP();
@@ -104,7 +102,7 @@ if(isset($_POST['signup-btn'])){ //we take from Post form in signup.php
         
             </body>
         </body>
-        </html>'; //Achtung auf Pfad bei href!!!
+        </html>'; 
 
           $mail->isHtml(true);
           $mail->Subject = "Verify your Email Address";
@@ -112,33 +110,20 @@ if(isset($_POST['signup-btn'])){ //we take from Post form in signup.php
 
           if($mail->send()){
         } else {
+            echo "Error sending E-Mail, please contact us!";
           }
 
         }
-
-            
-
-
-
-
             //set flash message
             $_SESSION['message'] = "You are now logged in!";
             $_SESSION['alert-class'] = "alert-success";
             header('location: index.php'); //redirection to index.php
             exit();
 
-             
         }else{
             $errors['db_error'] = "Database error: failed to register";
         }
-
-
-
-
     }
-
-
-
 }
 
 //if user click on login button
@@ -192,12 +177,13 @@ if(isset($_GET['logout'])){
     unset($_SESSION['username']);
     unset($_SESSION['email']);
     unset($_SESSION['verified']);
+    unset($_SESSION['isadmin']);
     header('location: login.php'); //here to HOMEPAGE !!
     exit();
 }
 
 //verify user
-function verifyUser($token){
+function verifyUser($token){ //gets called in index.php at the beginning
     global $conn;
     $sql = "SELECT * FROM users WHERE token='$token'LIMIT 1";
     $result = mysqli_query($conn, $sql);
@@ -223,4 +209,10 @@ function verifyUser($token){
     } else {
         echo 'User not found'; 
     }
+}
+
+function deleteUser(){
+    //load Users
+
+    //select and delete User based on ID
 }
