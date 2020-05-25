@@ -82,19 +82,11 @@ body{
 .bg {
     background-image: url('https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80');
     background-size: cover;
+    height: 80vh;
 }
 
 .login {
     background-color: white;
-}
-
-.form-div {
-    margin: 50px auto 50px;
-    padding: 25px 15px 10px 15px;
-    border: 1px solid lightblue;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-family: 'Roboto', sans-serif;
 }
 
 .form-control:focus {
