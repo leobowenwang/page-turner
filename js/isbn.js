@@ -33,7 +33,7 @@ function getBookLists(isbn) {
             books.innerHTML = (
                 "<div class=\"row\">\n" +
                 "            <div class=\"col\">\n" +
-                "                <a href='/page-turner/books/books/details.php?isbn=" + isbn + "'>\n" +
+                "                <a href='/page-turner/books/details.php?isbn=" + isbn + "'>\n" +
                 "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 300px' src='" + img + "' alt='" + title + "'>\n" +
                 "                </a>\n" +
                 "            </div>\n" +
@@ -230,4 +230,19 @@ function getBookDetails(isbn) {
 
             document.getElementById("books").appendChild(books); //appending
         });
+
+
+}
+
+function findGetParameter(parameterName) { //method to retrieve GET data from url
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
 }

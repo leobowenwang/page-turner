@@ -21,8 +21,12 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
     </section>
 
     <p id="books"></p>
+ 
     <script>
-        getBookDetails(9781451648546);
+
+    let isbn = findGetParameter("isbn");
+    getBookDetails(isbn);
+        
     </script>
 
 </div>
