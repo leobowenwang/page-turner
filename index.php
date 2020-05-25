@@ -42,9 +42,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
         <!--load books position-->
         <p id="books"></p>
         <script>
-            getBookLists(9781451648546);
-            getBookLists(9780061847011);
-            getBookLists(9783827324658);
+            getBookLists(9781451648546,22.99);
+            getBookLists(9780061847011,14.99);
+            getBookLists(9780596002855,16.99);
         </script>
 
         <!-- Pagination -->

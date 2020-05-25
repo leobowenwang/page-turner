@@ -1,3 +1,4 @@
+
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/header.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
@@ -12,7 +13,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/page-turner/index.php">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/page-turner/books.php">Books</a></li>
+                    <li class="breadcrumb-item"><a href="/page-turner/ebooks.php">E-Books</a></li>
                     <li class="breadcrumb-item active">Product Details</li>
                 </ol>
             </nav>
@@ -20,8 +21,13 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
     </section>
 
     <p id="books"></p>
+
     <script>
-        getBookDetails(9781451648546);
+
+    let isbn = findGetParameter("isbn");
+    // todo ebook link doesnt work
+    // getEBookDetails(isbn);
+
     </script>
 
 </div>
