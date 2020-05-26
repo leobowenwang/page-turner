@@ -54,12 +54,12 @@ if (!isset($_SESSION['id'])) {
                 <div class="alert alert-success" role="alert">You have been verified!</div>
             <?php endif; ?>
 
-
+<!--
             <?php if ($_SESSION['isAdmin']): //if isAdmin
                 ?>
                 <a href="adminPage.php">Delete Users</a>
             <?php endif; ?>
-            
+    -->
         </div>
     </div>
 </div>

@@ -26,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 
     let isbn = findGetParameter("isbn");
     // todo ebook link doesnt work
-    // getEBookDetails(isbn);
+    getEBookDetails(isbn);
 
     </script>
 

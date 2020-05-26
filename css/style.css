@@ -78,7 +78,7 @@ body{
 /*end of index slideshow*/
 
 
-/*login*/
+/*Login*/
 .bg {
     background-image: url('https://images.unsplash.com/photo-1431512284068-4c4002298068?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2552&q=80');
     background-size: cover;
@@ -115,7 +115,7 @@ form p {
     transition: 0.5s;
 }
 
-/*end of login*/
+/*end of Login*/
 
 /*start of footer*/
 .page-footer {
