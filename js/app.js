@@ -8,7 +8,7 @@ searchBar.addEventListener('keyup', (e) => { //same as Lambda expressions in pro
     const filteredCharacters = hpCharacters.filter((character) => {
         return (
             character.name.toLowerCase().includes(searchString) ||
-            character.house.toLowerCase().includes(searchString)
+            character.house.toLowerCase().includes(searchString) || character.actor.toLowerCase().includes(searchString)
         );
     });
     displayCharacters(filteredCharacters);
@@ -30,6 +30,7 @@ const displayCharacters = (characters) => {
             return `
             <li class="list-unstyled">
                 <h3>${character.name}</h3>
+		<h5>Actor: ${character.actor}</h5>
                 <h5>House: ${character.house}</h5>
                 <img src="${character.image}" width="200"/>
             </li>
