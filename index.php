@@ -22,7 +22,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
                     <img class="d-block w-100" src="img/slideshow2.jfif" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="img/slideshow3.jfif" alt="Third slide">
+                    <a href="easterEgg.php">
+                    <img class="d-block w-100" src="img/harry-porter.png" alt="Third slide">
+                    </a>
                 </div>
 
             </div>
