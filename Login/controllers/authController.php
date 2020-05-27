@@ -150,7 +150,9 @@ if(isset($_POST['login-btn'])){ //we take from Post form in signup.php
     $result = $stmt->get_result();
     $user = $result->fetch_assoc(); //if user exists, returns us a user
 
-    if (password_verify($password, $user['password'])){ //php method, takes 2 parameters and verifies, if true 
+    if(is_null($user)){
+        $errors['login_fail'] = "Error";
+    } else if (password_verify($password, $user['password'])){ //php method, takes 2 parameters and verifies, if true 
         //login success
         $_SESSION['id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
