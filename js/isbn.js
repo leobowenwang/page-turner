@@ -12,7 +12,6 @@ function initbook(isbn) {
 }
 
 function getBookLists(isbn, price) {
-    var listPrice = price;
     var results = fetch(initbook(isbn)) //Caution: asynchronous call, it may load certain books in a different order & it may load other commands before this one
         .then((results) => results.json())
         .then(function (results) {
@@ -35,7 +34,7 @@ function getBookLists(isbn, price) {
             books.innerHTML = (
                 "<div class=\"row\">\n" +
                 "            <div class=\"col\">\n" +
-                "                <a href='/page-turner/books/details.php?isbn=" + isbn + "'>\n" +
+                "                <a href='/page-turner/books/details.php?isbn=" + isbn + "&price=" + price + "'>\n" +
                 "                    <img class=\"img-fluid mx-auto d-block mb-3 mb-md-0 \" style='height: 300px' src='" + img + "' alt='" + title + "'>\n" +
                 "                </a>\n" +
                 "            </div>\n" +
@@ -44,7 +43,7 @@ function getBookLists(isbn, price) {
                 "                <h3><small>" + authors + "</small></h3>\n" +
                 "                <h4><small>" + categories + "</small></h4>\n" +
                 "                <p>" + description + "</p>\n" +
-                "                <a class=\"btn btn-primary\" href='/page-turner/books/details.php?isbn=" + isbn + "'>View Details</a>\n" +
+                "                <a class=\"btn btn-primary\" href='/page-turner/books/details.php?isbn=" + isbn + "&price=" + price + "'>View Details</a>\n" +
                 "                <br><small>Publisher: " + publisher + "</small>\n" +
                 "                <br><small>Published Date: " + publishedDate + "</small>\n" +
                 "                <br><small>Rating: " + averageRating + "/5</small>\n" +
@@ -57,7 +56,7 @@ function getBookLists(isbn, price) {
         });
 }
 
-function getBookDetails(isbn) {
+function getBookDetails(isbn, price) {
     var results = fetch(initbook(isbn))
         .then((results) => results.json())
         .then(function (results) {
@@ -98,7 +97,7 @@ function getBookDetails(isbn) {
                 "                        </ul>\n" +
                 "                        <div class=\"price-block\"><hr>\n" +
                 "                        <div class=\"row\">\n" +
-                "                        <span class=\"price ml-3\"><h3>4.20 €</h3></span>\n" +
+                "                        <span class=\"price ml-3\"><h3>" + price + "€</h3></span>\n" +
                 "                        </div><hr>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"row\">\n" +
