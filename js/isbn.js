@@ -25,7 +25,7 @@ function getBookLists(isbn, price) {
             (book["volumeInfo"]["categories"] != undefined) ? categories = book["volumeInfo"]["categories"] : categories = "";
             (book["volumeInfo"]["publisher"] != undefined) ? publisher = book["volumeInfo"]["publisher"] : publisher = "Unknown Publisher";
             (book["volumeInfo"]["publishedDate"] != undefined) ? publishedDate = book["volumeInfo"]["publishedDate"] : publishedDate = "Unknown Published Date";
-            (book["volumeInfo"]["averageRating"] != undefined) ? averageRating = book["volumeInfo"]["averageRating"] : averageRating = "No Ratings yet";
+            (book["volumeInfo"]["averageRating"] != undefined) ? averageRating = book["volumeInfo"]["averageRating"] : averageRating = "0";
             (book["volumeInfo"]["imageLinks"]["thumbnail"] != undefined) ? img = book["volumeInfo"]["imageLinks"]["thumbnail"] : img = "https://booksforphysicists.com/static/cover-not-available.f94fb02e99a0.png";
 
             //to create in html
@@ -97,7 +97,7 @@ function getBookDetails(isbn, price) {
                 "                        </ul>\n" +
                 "                        <div class=\"price-block\"><hr>\n" +
                 "                        <div class=\"row\">\n" +
-                "                        <span class=\"price ml-3\"><h3>" + price + "€</h3></span>\n" +
+                "                        <span class=\"price ml-3\"><h3>" + price + " €</h3></span>\n" +
                 "                        </div><hr>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"row\">\n" +
@@ -136,7 +136,7 @@ function getBookDetails(isbn, price) {
                 "                            <h2 class=\"title-lg mb--20\"> REVIEWS (" + ratingsCount + ")</h2>\n" +
                 "                            <div class=\"review-comment mb--20\">\n" +
                 "                                <div class=\"text\">\n" +
-                "                                    <div class=\"rating-block mb--15\">\n" + //stars
+                "                                    <div class=\"rating-block mb--15\">\n" + //TODO stars
                 "                                    </div>\n" +
                 "                                    <h6 class=\"author\">ADMIN – <span class=\"font-weight-400\">March 23, 2015</span>\n" +
                 "                                    </h6>\n" +

@@ -44,9 +44,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
         <!--load books position-->
         <p id="books"></p>
         <script>
-            getBookLists(9781451648546,22.99);
-            getBookLists(9780061847011,14.99);
-            getBookLists(9780596002855,16.99);
+            getBookLists(9781451648546,22.99); //Steve Jobs
+            getBookLists(9780061847011,14.99); //Love is a Dog From Hell
+            getEBookLists(9781453286142); //Playing for Keeps
         </script>
 
         <!-- Pagination -->
