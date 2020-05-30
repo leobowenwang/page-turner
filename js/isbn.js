@@ -58,16 +58,6 @@ function getBookLists(isbn, price) {
 
 function getBookDetails(isbn, price) {
 
-   var addToCartButton = document.getElementsByClassName('add-cart-btn')
-   console.log(addToCartButton);
-   for (var i = 0 ; i < addToCartButton.length; i++) {
-       var button = addToCartButton[i]
-       button.addEventListener('click', function () {
-        alert("Added to Cart");
-        console.log("clicked");
-       })
-   }
-
     var results = fetch(initbook(isbn))
         .then((results) => results.json())
         .then(function (results) {
@@ -204,10 +194,34 @@ function getBookDetails(isbn, price) {
                 "                </div>\n" +
                 "            </div>\n"
             );
+            
+            
+        
+        var addToCartButton = books.getElementsByClassName('add-cart-btn')
+        for (var i = 0 ; i < addToCartButton.length; i++) {
+            console.log("clicked");
+            var button = addToCartButton[i]
+            button.addEventListener('click', purchaseClicked, addToCartClicked)
+        }
+
+
 
             document.getElementById("books").appendChild(books);
         });
+    
+
+    }
+
+function purchaseClicked (){
+    alert("Added to Cart");
 }
+function addToCartClicked(event) {
+    var button = event.target
+    getBookLists(isbn,price); 
+
+
+}
+
 
 function getEBookLists(isbn) {
     var results = fetch(initbook(isbn))
