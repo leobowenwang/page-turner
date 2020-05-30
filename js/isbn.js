@@ -57,12 +57,16 @@ function getBookLists(isbn, price) {
 }
 
 function getBookDetails(isbn, price) {
-    var addCartButton = document.querySelectorAll('.add-cart-btn');
 
-    for (let i = 0; i < addCartButton.length; i++) {
-        console.log("my loop");
-    }
-
+   var addToCartButton = document.getElementsByClassName('add-cart-btn')
+   console.log(addToCartButton);
+   for (var i = 0 ; i < addToCartButton.length; i++) {
+       var button = addToCartButton[i]
+       button.addEventListener('click', function () {
+        alert("Added to Cart");
+        console.log("clicked");
+       })
+   }
 
     var results = fetch(initbook(isbn))
         .then((results) => results.json())
@@ -112,7 +116,7 @@ function getBookDetails(isbn, price) {
                 "                                <input type=\"number\" class=\"form-control text-center\" value=\"1\" min='1' >\n" +
                 "                            </div>\n" +
                 "                            <div class=\"add-cart-btn\">\n" +
-                "                                <a href=\"\" class=\"btn btn-primary\">+ Add to Cart</a>\n" +
+                "                                <a href=\"\"class=\"btn btn-primary\">+ Add to Cart</a>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>\n" +
