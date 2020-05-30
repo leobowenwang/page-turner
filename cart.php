@@ -17,17 +17,27 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
   cursor: pointer;
   border-radius: .25rem;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: #007bff; /* Blue */
 }
-.button {background-color: #007bff;} /* Blue */
+.total-price-text {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 950px;
+}
+
 </style>
     
     <div class="container">
         <h1>Shopping Cart</h1> 
         <hr>
+        </div>
         <div>
-        <h2 style= "text-align:right;">Total: </h2>
+        <strong class= "total-price-text">Total:</strong>
+        <span class= "total-price" style= "font-size: 25px;">0€</span>
         <button class="button buy-btn">Buy Now</button>
-        <p style= "text-align:right;">Pay by Paypal, Credit Cart or Account</p>
+        <p style= "margin-left: 950px;">Pay by Paypal, Credit Cart or Account</p>
         </div>
       <hr>
 

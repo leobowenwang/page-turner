@@ -1,3 +1,25 @@
+document.addEventListener("DOMContentLoaded", function(event) {
+
+    const maxQuantity = 5;
+
+    
+
+
+document.getElementsByClassName("buy-btn")[0].addEventListener('click', 
+ purchaseClicked)
+
+
+function purchaseClicked (){
+    alert("Thank you for purchasing");
+}
+
+
+
+
+
+
+
+
 function initbook(isbn) {
     // Query the book database by ISBN code
     isbn = isbn;
@@ -15,8 +37,8 @@ function getCartBooks(isbn, price) {
         .then((results) => results.json())
         .then(function (results) {
             let book = results.items[0];
-
-            let title, authors, description, categories, publisher, publishedDate, averageRating, img;
+            let title, authors, img;
+            var count = document.getElementsByClassName("count")[0];
 
             (book["volumeInfo"]["title"] != undefined) ? title = book["volumeInfo"]["title"] : title = "No Title"; //ternary Operator: How? --> Bedingung ? Ausdruck1: Ausdruck2
             (book["volumeInfo"]["authors"] != undefined) ? authors = book["volumeInfo"]["authors"] : authors = "Unknown Author";
@@ -24,8 +46,12 @@ function getCartBooks(isbn, price) {
 
             //to create in html
             let books = document.createElement("p");
+
+            
+                    
             //to display in html
             books.innerHTML = (
+                
                 "<div class=\"row\">\n" +
                 "            <div class=\"col\">\n" +
                 "                <a href='/page-turner/books/details.php?isbn=" + isbn + "&price=" + price + "'>\n" +
@@ -35,36 +61,28 @@ function getCartBooks(isbn, price) {
                 "            <div class=\"col\">\n" +
                 "                <h3>" + title + "</h3>\n" +
                 "                <h3><small>" + authors + "</small></h3>\n" + 
-                "                <br><h3><small>" + "Amount: " + "</small></h3>\n" +             
+                "                        <div><hr>\n" +
+                "                        <div class=\"row\">\n" +
+                "                            <div class=\"count ml-3 w-10\">" +
+                "                                <input type=\"number\" class=\"form-control text-center\" value=\"1\" min='1' >\n" +
+                "                            </div>\n" +
+                "                           </div>\n" +
+                "                <br><h3><small>" + "Amount: " + count +  "</small></h3>\n" +             
                 "                <h4>Price: " + price + " €</h4>\n" +
-                "                <br><a href=\"\"class=\"btn btn-primary\">Remove</a>\n" +
+                "                <br><a href=\"\"class=\"btn btn-primary\" >Remove</a>\n" +
+                "                        </div>\n" +
                 "            </div>" +
                 "</div>" +
                 " <hr>"
             );
+            var totalprice = 0;
+            console.log(price);
+            totalprice = price + price;
+            document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
             document.getElementById("books").appendChild(books); //appending
         });
+        
     }
-   
-
-function findGetParameter(parameterName) { //method to retrieve GET data from url
-    var result = null,
-        tmp = [];
-    location.search
-        .substr(1)
-        .split("&")
-        .forEach(function (item) {
-            tmp = item.split("=");
-            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-        });
-    return result;
-}
-getCartBooks(9781451648546,22.99);
-getCartBooks(9780061847011,14.99);
-
-document.getElementsByClassName("buy-btn")[0].addEventListener('click', 
-purchaseClicked)
-
-function purchaseClicked (){
-    alert("Thank you for purchasing");
-}
+    getCartBooks(9781451648546,22.99);
+    getCartBooks(9780061847011,14.99);
+});
