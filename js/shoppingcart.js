@@ -10,7 +10,7 @@ function initbook(isbn) {
         apikey;
     return url;
 }
-function getCartBook(isbn, price) {
+function getCartBooks(isbn, price) {
     var results = fetch(initbook(isbn)) //Caution: asynchronous call, it may load certain books in a different order & it may load other commands before this one
         .then((results) => results.json())
         .then(function (results) {
