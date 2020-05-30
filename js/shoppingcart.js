@@ -20,11 +20,6 @@ function getCartBooks(isbn, price) {
 
             (book["volumeInfo"]["title"] != undefined) ? title = book["volumeInfo"]["title"] : title = "No Title"; //ternary Operator: How? --> Bedingung ? Ausdruck1: Ausdruck2
             (book["volumeInfo"]["authors"] != undefined) ? authors = book["volumeInfo"]["authors"] : authors = "Unknown Author";
-            (book["searchInfo"]["textSnippet"] != undefined) ? description = book["searchInfo"]["textSnippet"] : description = "No Text Snippet";
-            (book["volumeInfo"]["categories"] != undefined) ? categories = book["volumeInfo"]["categories"] : categories = "";
-            (book["volumeInfo"]["publisher"] != undefined) ? publisher = book["volumeInfo"]["publisher"] : publisher = "Unknown Publisher";
-            (book["volumeInfo"]["publishedDate"] != undefined) ? publishedDate = book["volumeInfo"]["publishedDate"] : publishedDate = "Unknown Published Date";
-            (book["volumeInfo"]["averageRating"] != undefined) ? averageRating = book["volumeInfo"]["averageRating"] : averageRating = "0";
             (book["volumeInfo"]["imageLinks"]["thumbnail"] != undefined) ? img = book["volumeInfo"]["imageLinks"]["thumbnail"] : img = "https://booksforphysicists.com/static/cover-not-available.f94fb02e99a0.png";
 
             //to create in html
@@ -65,3 +60,11 @@ function findGetParameter(parameterName) { //method to retrieve GET data from ur
     return result;
 }
 getCartBooks(9781451648546,22.99);
+getCartBooks(9780061847011,14.99);
+
+document.getElementsByClassName("buy-btn")[0].addEventListener('click', 
+purchaseClicked)
+
+function purchaseClicked (){
+    alert("Thank you for purchasing");
+}
