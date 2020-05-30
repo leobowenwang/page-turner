@@ -3,35 +3,20 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/header.php";
 include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 ?>
 <body>
-
-
-<div id="container">
-    <h1>Shopping Cart</h1>
+    <div class="container">
+        <div class="text-center">
+        <h1>Shopping Cart</h1>
+        <!--load books position-->
+        <p id="books"></p>
+    <script>
+        getBook(9781451648546,22.99);
+    </script>
     <hr>
-  <!--  <p id="books"></p-->
-   
-</div>
+    </div>
+   <script src="/page-turner/js/shoppingcart.js"></script>
 </body>
-
-<!doctype html>
-<html lang="en">
-<head>
-<!--shoppingcart js script -->
-<script src="/page-turner/js/shoppingcart.js" type="text/javascript" async></script>
-</head>
-
-<body>
-
-   <!--main id="shoppingCart">
-   <main id="mainBookScreen">
-   </main>
-
-   <div id="total"></div-->
-
-</body>
- </html>
-
 
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/footer.php";
 ?>
+

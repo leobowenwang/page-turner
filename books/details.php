@@ -26,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 
     let isbn = findGetParameter("isbn");
     let price = findGetParameter("price");
-    getBookDetails(isbn, price);
+    //getBookDetails(isbn, price);
         
     </script>
 

@@ -57,6 +57,13 @@ function getBookLists(isbn, price) {
 }
 
 function getBookDetails(isbn, price) {
+    var addCartButton = document.querySelectorAll('.add-cart-btn');
+
+    for (let i = 0; i < addCartButton.length; i++) {
+        console.log("my loop");
+    }
+
+
     var results = fetch(initbook(isbn))
         .then((results) => results.json())
         .then(function (results) {
