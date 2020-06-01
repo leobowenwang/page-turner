@@ -7,7 +7,8 @@ else {
 
 function ready () {
     document.getElementsByClassName("buy-btn")[0].addEventListener('click',removeAll)
-document.getElementsByClassName("buy-btn")[0].addEventListener('click', purchaseClicked)
+    document.getElementsByClassName("buy-btn")[0].addEventListener('click', purchaseClicked)
+    
 
 
 function purchaseClicked (){
@@ -17,10 +18,10 @@ function removeAll() {
     document.getElementById("books").remove(books); //removing books
     document.getElementsByClassName("total-price")[0].innerText =  '0€';
 
-    console.log("removed");
+    console.log("removed all books");
 
   }
-    
+ 
 }
 
 
@@ -76,26 +77,38 @@ function getCartBooks(isbn, price) {
                 "                              </div>\n" +
                 "                             </div>\n" +
                 "                           </div>\n" +     
-                "                <h4>Price: " + price + " €</h4>\n" +
-                "                <br><a href=\"\"class=\"btn btn-primary\" >Remove</a>\n" +
+                "                <h4> Price: " + price + " €</h4>\n" +
+                "                            <div class=\"remove-book-btn\">\n" +
+                "                                <br><class=\"btn btn-primary\" style='background-color: #007bff; cursor: pointer; border: none; color: white; padding: 15px 25px; text-decoration: none; display: inline-block; font-size: 15px; border-radius: .25rem;' >Remove</a>\n" +
+                "                            </div>\n" +
                 "                        </div>\n" +
                 "            </div>" +
                 "</div>" +
                 " <hr>"
                
             );
-
+            
             var quantityElement = books.getElementsByClassName("form-control")[0];
             var quantity = quantityElement.value;
             console.log(quantity);
-           
 
-             totalprice = 0;
-             totalprice = totalprice + (price * quantity);
-          
-        
+            var totalprice = 0;
+            totalprice = totalprice + (price * quantity)
             document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
+           
         
+          
+            books.getElementsByClassName("remove-book-btn")[0].addEventListener("click", removeBook);
+
+            function removeBook() {
+                document.getElementById("books").removeChild(books)
+                 console.log("removed book");
+                 totalprice = totalprice - (price * quantity);
+                document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
+                 
+            }
+
+    
             document.getElementById("books").appendChild(books); //appending
 
     
@@ -110,3 +123,4 @@ function getCartBooks(isbn, price) {
    getCartBooks(9780061847011,14.99);
    getCartBooks(9781451648546,22.99);
    getCartBooks(9780345816047,13.95);
+   
