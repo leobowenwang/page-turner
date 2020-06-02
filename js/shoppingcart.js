@@ -119,8 +119,14 @@ function getCartBooks(isbn, price) {
        
         
     }
-    
+    /*
+    let isbn = findGetParameter("isbn");
+    let price = findGetParameter("price");
+    getBookDetails(isbn, price);
+    */
+
+
    getCartBooks(9780061847011,14.99);
    getCartBooks(9781451648546,22.99);
    getCartBooks(9780345816047,13.95);
-   
+
