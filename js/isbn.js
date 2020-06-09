@@ -213,15 +213,6 @@ function getBookDetails(isbn, price) {
 
     }
 
-function addToCartClicked() {
-    alert("Added to Cart");
-    localStorage.setItem('isbn', isbn);
-    localStorage.setItem('price', price);
-
-
-}
-
-
 function getEBookLists(isbn) {
     var results = fetch(initbook(isbn))
         .then((results) => results.json())
@@ -407,9 +398,27 @@ function getEBookDetails(isbn) {
                 "            </div>\n"
             );
 
+            var addToCartButton = books.getElementsByClassName('add-cart-btn')
+        for (var i = 0 ; i < addToCartButton.length; i++) {
+            console.log("clicked");
+            var button = addToCartButton[i]
+            button.addEventListener('click',addToCartClicked)
+
+        }
+           
             document.getElementById("books").appendChild(books);
         });
 }
+
+function addToCartClicked() {
+    alert("Added to Cart");
+    localStorage.setItem('isbn', isbn);
+    localStorage.setItem('price', price);
+    localStorage.setItem('eprice', listPrice);
+}
+
+
+
 
 function findGetParameter(parameterName) { //method to retrieve GET data from url
     var result = null,

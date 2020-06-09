@@ -24,6 +24,7 @@ function removeAll() {
 }
 let isbn = localStorage.getItem('isbn');
 let price = localStorage.getItem('price');
+//let price  = localStorage.getItem('eprice'); //e-book price
 
 function getCartBooks(isbn, price) {
 
