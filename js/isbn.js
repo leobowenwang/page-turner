@@ -201,7 +201,8 @@ function getBookDetails(isbn, price) {
         for (var i = 0 ; i < addToCartButton.length; i++) {
             console.log("clicked");
             var button = addToCartButton[i]
-            button.addEventListener('click', purchaseClicked, addToCartClicked)
+            button.addEventListener('click',addToCartClicked)
+
         }
 
 
@@ -212,12 +213,10 @@ function getBookDetails(isbn, price) {
 
     }
 
-function purchaseClicked (){
+function addToCartClicked() {
     alert("Added to Cart");
-}
-function addToCartClicked(event) {
-    var button = event.target
-    getBookLists(isbn,price); 
+    localStorage.setItem('isbn', isbn);
+    localStorage.setItem('price', price);
 
 
 }

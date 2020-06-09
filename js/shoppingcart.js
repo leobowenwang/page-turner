@@ -6,10 +6,8 @@ else {
 }
 
 function ready () {
-    document.getElementsByClassName("buy-btn")[0].addEventListener('click',removeAll)
-    document.getElementsByClassName("buy-btn")[0].addEventListener('click', purchaseClicked)
-    
-
+    document.getElementsByClassName("buy-btn")[0].addEventListener('click',purchaseClicked);
+    document.getElementsByClassName("buy-btn")[0].addEventListener('click',removeAll);
 
 function purchaseClicked (){
     alert("Thank you for purchasing");
@@ -17,27 +15,16 @@ function purchaseClicked (){
 function removeAll() {
     document.getElementById("books").remove(books); //removing books
     document.getElementsByClassName("total-price")[0].innerText =  '0€';
+    localStorage.clear();
 
     console.log("removed all books");
 
   }
  
 }
+let isbn = localStorage.getItem('isbn');
+let price = localStorage.getItem('price');
 
-
-
-function initbook(isbn) {
-    // Query the book database by ISBN code
-    isbn = isbn;
-    apikey = "AIzaSyC3mb5Qp27hxqkPxnU4RNAMvtZ16q10i4I";
-
-    var url =
-        "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
-        isbn +
-        "&key=" +
-        apikey;
-    return url;
-}
 function getCartBooks(isbn, price) {
 
    
@@ -101,8 +88,11 @@ function getCartBooks(isbn, price) {
             books.getElementsByClassName("remove-book-btn")[0].addEventListener("click", removeBook);
 
             function removeBook() {
-                document.getElementById("books").removeChild(books)
+                document.getElementById("books").removeChild(books);
+                localStorage.removeItem('isbn');
+                localStorage.removeItem('price');
                  console.log("removed book");
+                 console.log(quantity);
                  totalprice = totalprice - (price * quantity);
                 document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
                  
@@ -114,19 +104,6 @@ function getCartBooks(isbn, price) {
     
             
         });
-           
-        
-       
         
     }
-    /*
-    let isbn = findGetParameter("isbn");
-    let price = findGetParameter("price");
-    getBookDetails(isbn, price);
-    */
-
-
-   getCartBooks(9780061847011,14.99);
-   getCartBooks(9781451648546,22.99);
-   getCartBooks(9780345816047,13.95);
-
+    getCartBooks(isbn,price);
