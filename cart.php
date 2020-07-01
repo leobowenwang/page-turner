@@ -57,9 +57,15 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
       <hr>
 
     </div>
+
    <!--load books position-->
-   <p id="books"></p>
    
+   <p id="books"></p>
+   <p id="text" style = "margin-left: 500px; font-size: 25px;">Your Cart is Empty <br> 
+   You should have a look at our awesome Books, you’ll certainly find one you need.</p>
+   
+
+
    <script src="/page-turner/js/shoppingcart.js"></script>
 
    <!-- Pagination -->

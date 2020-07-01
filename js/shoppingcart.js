@@ -1,4 +1,4 @@
-if (document.readyState == 'loading') {    //wenn document noch ladet, warten wenns fertig is gehts los
+if (document.readyState == 'loading') {    //wenn seite noch ladet, warten wenns fertig is -> ready
     document.addEventListener("DOMContentLoaded", ready)
 }
 else {
@@ -97,7 +97,7 @@ function getCartBooks(isbn, price) {
             function cartTotal() {
             var totalprice = 0;
             totalprice = totalprice + (price * input.value)
-            totalprice  = Math.round(totalprice * 100)/ 100;  // damit zahl (preis) ordentlich gerundet wird
+            totalprice  = Math.round(totalprice * 100)/ 100;  // ansonsten entstehen rundungsfehler
             document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
             
         }
@@ -118,11 +118,10 @@ function getCartBooks(isbn, price) {
            
     
             document.getElementById("books").appendChild(books); //appending 
+            document.getElementById("text").remove();
             cartTotal();
         });
         
     }
     getCartBooks(isbn,price);
-
-    
 }
