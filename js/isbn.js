@@ -204,9 +204,6 @@ function getBookDetails(isbn, price) {
             button.addEventListener('click',addToCartClicked)
 
         }
-
-
-
             document.getElementById("books").appendChild(books);
         });
     

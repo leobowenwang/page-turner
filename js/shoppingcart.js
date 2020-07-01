@@ -1,4 +1,4 @@
-if (document.readyState == 'loading') {
+if (document.readyState == 'loading') {    //wenn document noch ladet, warten wenns fertig is gehts los
     document.addEventListener("DOMContentLoaded", ready)
 }
 else {
@@ -21,7 +21,7 @@ function removeAll() {
 
   }
  
-}
+
 let isbn = localStorage.getItem('isbn');
 let price = localStorage.getItem('price');
 //let price  = localStorage.getItem('eprice'); //e-book price
@@ -76,14 +76,31 @@ function getCartBooks(isbn, price) {
                
             );
             
-            var quantityElement = books.getElementsByClassName("form-control")[0];
-            var quantity = quantityElement.value;
-            console.log(quantity);
-
-            var totalprice = 0;
-            totalprice = totalprice + (price * quantity)
-            document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
+            var quantityElement = books.getElementsByClassName("form-control");
+            for (var i = 0 ; i < quantityElement.length; i++) {
+            var input = quantityElement[i];
+            input.addEventListener('change', quantityChanged);
+        
            
+            }
+
+            function quantityChanged(event) {
+               var input = event.target;
+               if(isNaN(input.value) || input.value <= 0) {
+                   input.value = 1;
+                  
+               }
+            
+               console.log(input.value);
+               cartTotal();
+            }
+            function cartTotal() {
+            var totalprice = 0;
+            totalprice = totalprice + (price * input.value)
+            totalprice  = Math.round(totalprice * 100)/ 100;  // damit zahl (preis) ordentlich gerundet wird
+            document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
+            
+        }
         
           
             books.getElementsByClassName("remove-book-btn")[0].addEventListener("click", removeBook);
@@ -93,18 +110,19 @@ function getCartBooks(isbn, price) {
                 localStorage.removeItem('isbn');
                 localStorage.removeItem('price');
                  console.log("removed book");
-                 console.log(quantity);
-                 totalprice = totalprice - (price * quantity);
-                document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
+                 var totalprice = price;
+                 totalprice = totalprice - (price * input.value)
+                 document.getElementsByClassName("total-price")[0].innerText = totalprice + '€';
                  
             }
-
+           
     
-            document.getElementById("books").appendChild(books); //appending
-
-    
-            
+            document.getElementById("books").appendChild(books); //appending 
+            cartTotal();
         });
         
     }
     getCartBooks(isbn,price);
+
+    
+}

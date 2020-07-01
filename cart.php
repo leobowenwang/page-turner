@@ -33,9 +33,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 }
 
 </style>
-
-
-    
     <div class="container">
     <section class="breadcrumb-section">
         <h2 class="sr-only">Site Breadcrumb</h2>
