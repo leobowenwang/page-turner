@@ -6,11 +6,20 @@ else {
 }
 
 function ready () {
+
+    let isbn = localStorage.getItem('isbn');
+    let price = localStorage.getItem('price');
+
+
     document.getElementsByClassName("buy-btn")[0].addEventListener('click',purchaseClicked);
     document.getElementsByClassName("buy-btn")[0].addEventListener('click',removeAll);
 
 function purchaseClicked (){
-    alert("Thank you for purchasing");
+    if(price == null) {
+        alert("Your Cart is empty");
+    } else {
+        alert("Thank you for purchasing");
+    }
 }
 function removeAll() {
     document.getElementById("books").remove(books); //removing books
@@ -21,10 +30,6 @@ function removeAll() {
 
   }
  
-
-let isbn = localStorage.getItem('isbn');
-let price = localStorage.getItem('price');
-//let price  = localStorage.getItem('eprice'); //e-book price
 
 function getCartBooks(isbn, price) {
 
