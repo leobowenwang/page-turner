@@ -24,6 +24,9 @@
             <a class="nav-link" href="/page-turner/cart.php"><img class="icon" src="/page-turner/img/shopping_cart.png"
                                                                   alt="shopping-cart"><span>0</span></a>
 
+            <!-- update cart size everytime -->
+            <script>updateCartSize();</script>
+
             <form action="/page-turner/search.php">
                 <input type="text" placeholder="Search" id="searchbar">
             </form>

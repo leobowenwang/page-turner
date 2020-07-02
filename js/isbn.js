@@ -200,7 +200,8 @@ function getBookDetails(isbn, price) {
             let button = books.getElementsByClassName('add-cart-btn');
 
             button[0].addEventListener('click', () => {
-                addToCartSize(bookobj)
+                addToCartSize(bookobj);
+                totalCost(bookobj);
             });
 
 
@@ -400,19 +401,30 @@ function getEBookDetails(isbn) {
             let button = books.getElementsByClassName('add-cart-btn');
 
             button[0].addEventListener('click', () => {
-                addToCartSize(bookobj)
+                addToCartSize(bookobj);
+                totalCost(bookobj);
             });
 
 
         });
 }
 
-function loadCartNumbers() {
-    let totalcartsize = localStorage.getItem('totalcartsize');
-    if (totalcartsize) {
-        document.querySelector('.nav-link span').textContent = totalcartsize;
-    }
+function findGetParameter(parameterName) { //method to retrieve GET data from url
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
 }
+
+/*
+Cart Functions
+ */
 
 function addToCartSize(bookobj) {
     let totalcartsize = localStorage.getItem('totalcartsize');
@@ -427,6 +439,15 @@ function addToCartSize(bookobj) {
         document.querySelector('.nav-link span').textContent = totalcartsize;
     }
     setItems(bookobj);
+    updateCartSize();
+}
+
+function updateCartSize() {
+
+    let totalcartsize = localStorage.getItem('totalcartsize');
+
+    document.querySelector('.nav-link span').textContent = totalcartsize;
+
 }
 
 function setItems(bookobj) {
@@ -454,17 +475,7 @@ function setItems(bookobj) {
 
 }
 
-function findGetParameter(parameterName) { //method to retrieve GET data from url
-    var result = null,
-        tmp = [];
-    location.search
-        .substr(1)
-        .split("&")
-        .forEach(function (item) {
-            tmp = item.split("=");
-            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
-        });
-    return result;
+function totalCost(product) {
+    console.log(product.price);
 }
 
-loadCartNumbers();
