@@ -1,7 +1,7 @@
 function initbook(isbn) {
     // Query the book database by ISBN code
     isbn = isbn;
-    apikey = "AIzaSyC3mb5Qp27hxqkPxnU4RNAMvtZ16q10i4I";
+    apikey = "AIzaSyAbpk3lk5Aqyl5gtgGZAtys07LosYH9_hU";
 
     var url =
         "https://www.googleapis.com/books/v1/volumes?q=isbn:" +
