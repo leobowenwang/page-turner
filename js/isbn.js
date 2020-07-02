@@ -79,6 +79,7 @@ function getBookDetails(isbn, price) {
 
             //to create in html
             let books = document.createElement("p");
+            let bookobj = {title: title, isbn: isbn, price: price, amount: 0};
 
             //to display in html
             books.innerHTML = (
@@ -196,10 +197,11 @@ function getBookDetails(isbn, price) {
             );
             document.getElementById("books").appendChild(books);
 
-            var addToCartButton = books.getElementsByClassName('add-cart-btn')
+            let button = books.getElementsByClassName('add-cart-btn');
 
-            var button = addToCartButton[0];
-            button.addEventListener('click', addToCartClicked);
+            button[0].addEventListener('click', () => {
+                addToCartSize(bookobj)
+            });
 
 
         });
@@ -276,6 +278,7 @@ function getEBookDetails(isbn) {
 
             //to create in html
             let books = document.createElement("p");
+            const bookobj = {title: title, isbn: isbn, price: listPrice, amount: 0};
 
             //to display in html
             books.innerHTML = (
@@ -317,7 +320,7 @@ function getEBookDetails(isbn) {
                 "                    </li>\n" +
                 "                    <li class=\"nav-item\">\n" +
                 "                        <a class=\"nav-link\" id=\"tab2\" data-toggle=\"tab\" href=\"#tab-2\" role=\"tab\"\n" +
-                "                           aria-controls=\"tab-2\" aria-selected=\"true\">\n" +
+                "                            aria-controls=\"tab-2\" aria-selected=\"true\">\n" +
                 "                            REVIEWS (" + ratingsCount + ")\n" +
                 "                        </a>\n" +
                 "                    </li>\n" +
@@ -394,44 +397,62 @@ function getEBookDetails(isbn) {
             document.getElementById("books").appendChild(books);
 
 
-            let addToCartButton = books.getElementsByClassName('add-cart-btn')
+            let button = books.getElementsByClassName('add-cart-btn');
 
-            var button = addToCartButton[0];
-            button.addEventListener('click', addToCartClicked);
+            button[0].addEventListener('click', () => {
+                addToCartSize(bookobj)
+            });
 
 
         });
 }
 
 function loadCartNumbers() {
-    let nr = localStorage.getItem('cartnr');
-    if (nr) {
-        document.querySelector('.nav-link span').textContent = nr;
+    let totalcartsize = localStorage.getItem('totalcartsize');
+    if (totalcartsize) {
+        document.querySelector('.nav-link span').textContent = totalcartsize;
     }
 }
 
-function addToCartClicked() {
-    //alert("Added to Cart");
-    let nr = localStorage.getItem('cartnr');
+function addToCartSize(bookobj) {
+    let totalcartsize = localStorage.getItem('totalcartsize');
 
-    nr = parseInt(nr);
+    totalcartsize = parseInt(totalcartsize);
 
-    if (nr) {
-        localStorage.setItem('cartnr', nr + 1);
-        document.querySelector('.nav-link span').textContent = nr + 1;
-
-
+    if (totalcartsize) {
+        localStorage.setItem('totalcartsize', totalcartsize + 1);
+        document.querySelector('.nav-link span').textContent = totalcartsize + 1;
     } else { //intialize
-        localStorage.setItem('cartnr', 1);
-        document.querySelector('.nav-link span').textContent = nr;
-        /*
-        localStorage.setItem('isbn', isbn);
-        localStorage.setItem('price', price);
-        localStorage.setItem('eprice', listPrice);
-         */
+        localStorage.setItem('totalcartsize', 1);
+        document.querySelector('.nav-link span').textContent = totalcartsize;
     }
+    setItems(bookobj);
 }
 
+function setItems(bookobj) {
+    let cartItems = localStorage.getItem('cartlist');
+    cartItems = JSON.parse(cartItems);
+
+
+    if (cartItems != null) {
+        if (cartItems[bookobj.title] == undefined) {
+            cartItems = {
+                ...cartItems,
+                [bookobj.title]: bookobj
+            }
+        }
+        cartItems[bookobj.title].amount += 1;
+    } else {
+        bookobj.amount = 1;
+        cartItems = {
+            [bookobj.title]: bookobj
+        }
+    }
+
+    localStorage.setItem("cartlist", JSON.stringify(cartItems));
+
+
+}
 
 function findGetParameter(parameterName) { //method to retrieve GET data from url
     var result = null,

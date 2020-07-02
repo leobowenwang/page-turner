@@ -1,4 +1,9 @@
 <!-- Footer -->
+<script>
+    window.onbeforeunload = function () {
+        sessionStorage.setItem('searchTerm', $('#searchbar').val());
+    };
+</script>
 
 <footer class="page-footer pt-4">
 
