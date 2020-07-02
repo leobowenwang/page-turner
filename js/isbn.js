@@ -81,7 +81,7 @@ function getBookDetails(isbn, price) {
             let books = document.createElement("p");
             price = parseFloat(price); //convert price to float
             //create object
-            let bookobj = {title: title, isbn: isbn, price: price, amount: 0};
+            let bookobj = {title: title, isbn: isbn, price: price, amount: 0, authors: authors};
 
             //to display in html
             books.innerHTML = (
@@ -105,9 +105,6 @@ function getBookDetails(isbn, price) {
                 "                        </div><hr>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"row\">\n" +
-                "                            <div class=\"count ml-3 w-10\">" +
-                "                                <input type=\"number\" class=\"form-control text-center\" value=\"1\" min='1' >\n" +
-                "                            </div>\n" +
                 "                            <div class=\"add-cart-btn\">\n" +
                 "                                <div class=\"btn btn-primary\">Add to Cart</div>\n" +
                 "                            </div>\n" +
@@ -284,7 +281,7 @@ function getEBookDetails(isbn) {
             //to create in html
             let books = document.createElement("p");
             //create object
-            const bookobj = {title: title, isbn: isbn, price: listPrice, amount: 0};
+            let bookobj = {title: title, isbn: isbn, price: listPrice, amount: 0, authors: authors};
 
             //to display in html
             books.innerHTML = (
@@ -308,9 +305,6 @@ function getEBookDetails(isbn) {
                 "                        </div><hr>\n" +
                 "                        </div>\n" +
                 "                        <div class=\"row\">\n" +
-                "                            <div class=\"count ml-3 w-10\">" +
-                "                                <input type=\"number\" class=\"form-control text-center\" value=\"1\" min='1' >\n" +
-                "                            </div>\n" +
                 "                            <div class=\"add-cart-btn\">\n" +
                 "                                <div class=\"btn btn-primary\">Add to Cart</div>\n" +
                 "                            </div>\n" +
@@ -476,8 +470,6 @@ function setItems(bookobj) {
     }
 
     localStorage.setItem("cartlist", JSON.stringify(cartItems));
-
-
 }
 
 function totalCost(bookobj) {
@@ -491,3 +483,55 @@ function totalCost(bookobj) {
     }
 }
 
+function displayCart() {
+
+
+    let cartItems = localStorage.getItem('cartlist');
+    let total = localStorage.getItem('totalcost');
+    total = parseFloat(total);
+
+
+
+    cartItems = JSON.parse(cartItems);
+    let listcontainer = document.querySelector(".product");
+    let sumcontainer = document.querySelector(".sum");
+
+    if (cartItems && listcontainer) {
+        Object.values(cartItems).map(item => {
+            listcontainer.insertAdjacentHTML("beforeend", `
+                                                            <tr>
+                                                                <th scope="row" class="border-0">
+                                                                    <div class="p-2">
+                                                                        <img src="https://booksforphysicists.com/static/cover-not-available.f94fb02e99a0.png" alt="" width="70" class="img-fluid shadow-sm">
+                                                                        <div class="ml-3 d-inline-block align-middle">
+                                                                            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${item.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">${item.authors}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </th>
+                                                                <td class="border-0 align-middle"><strong>${item.price} €</strong></td>
+                                                                <td class="border-0 align-middle"><strong>${item.amount}</strong></td>
+                                                                <td class="border-0 align-middle"><strong>${(item.price*item.amount).toFixed(2)} €</strong></td>
+                                                            </tr>
+                                                            <hr>
+`)
+        });
+
+        sumcontainer.innerHTML += `<div class="row py-5 p-4 bg-white rounded shadow-sm">
+                <div class="col-lg-12">
+                    <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+                    <div class="p-4">
+                        <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${(total / 1.2).toFixed(2)} €</strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>${(total / 6).toFixed(2)} €</strong></li>
+                            <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                                <h5 class="font-weight-bold">${total.toFixed(2)} €</h5>
+                            </li>
+                        </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+}
+
+displayCart();
