@@ -19,7 +19,7 @@
             </ul>
 
             <a class="nav-link" href="/page-turner/login/index.php"><img class="icon" src="/page-turner/img/account.png" alt="account"></a>
-            <a class="nav-link" href="cart.php"><img class="icon" src="/page-turner/img/shopping_cart.png" alt="shopping-cart"></a>
+            <a class="nav-link" href="/page-turner/cart.php"><img class="icon" src="/page-turner/img/shopping_cart.png" alt="shopping-cart"></a>
 
             <div class="form-group has-search">
                 <span class="fa fa-search form-control-feedback"></span>

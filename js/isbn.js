@@ -408,10 +408,11 @@ function getEBookDetails(isbn) {
 }
 
 function addToCartClicked() {
-    alert("Added to Cart");
+
     localStorage.setItem('isbn', isbn);
     localStorage.setItem('price', price);
-    localStorage.setItem('eprice', listPrice);
+    alert("Added to Cart");
+    
 }
 
 

@@ -6,9 +6,10 @@ else {
 }
 
 function ready () {
-
+ 
     let isbn = localStorage.getItem('isbn');
     let price = localStorage.getItem('price');
+
 
 
     document.getElementsByClassName("buy-btn")[0].addEventListener('click',purchaseClicked);
@@ -129,4 +130,5 @@ function getCartBooks(isbn, price) {
         
     }
     getCartBooks(isbn,price);
+    //getCartBooks(9780345816047,13.95);
 }
