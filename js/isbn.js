@@ -79,6 +79,8 @@ function getBookDetails(isbn, price) {
 
             //to create in html
             let books = document.createElement("p");
+            price = parseFloat(price); //convert price to float
+            //create object
             let bookobj = {title: title, isbn: isbn, price: price, amount: 0};
 
             //to display in html
@@ -228,8 +230,10 @@ function getEBookLists(isbn) {
             (book["volumeInfo"]["averageRating"] != undefined) ? averageRating = book["volumeInfo"]["averageRating"] : averageRating = "0";
             (book["volumeInfo"]["imageLinks"]["thumbnail"] != undefined) ? img = book["volumeInfo"]["imageLinks"]["thumbnail"] : img = "https://booksforphysicists.com/static/cover-not-available.f94fb02e99a0.png";
 
+
             //to create in html
             let books = document.createElement("p");
+
             //to display in html
             books.innerHTML = (
                 "<div class=\"row\">\n" +
@@ -279,6 +283,7 @@ function getEBookDetails(isbn) {
 
             //to create in html
             let books = document.createElement("p");
+            //create object
             const bookobj = {title: title, isbn: isbn, price: listPrice, amount: 0};
 
             //to display in html
@@ -475,7 +480,14 @@ function setItems(bookobj) {
 
 }
 
-function totalCost(product) {
-    console.log(product.price);
+function totalCost(bookobj) {
+    let totalcost = localStorage.getItem('totalcost');
+
+    if (totalcost != null) {
+        totalcost = parseFloat(totalcost);
+        localStorage.setItem("totalcost", totalcost + bookobj.price);
+    } else {
+        localStorage.setItem("totalcost", bookobj.price);
+    }
 }
 
