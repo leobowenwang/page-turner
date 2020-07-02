@@ -106,7 +106,7 @@ function getBookDetails(isbn, price) {
                 "                                <input type=\"number\" class=\"form-control text-center\" value=\"1\" min='1' >\n" +
                 "                            </div>\n" +
                 "                            <div class=\"add-cart-btn\">\n" +
-                "                                <a href=\"\"class=\"btn btn-primary\">+ Add to Cart</a>\n" +
+                "                                <div class=\"btn btn-primary\">Add to Cart</div>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>\n" +
@@ -194,21 +194,20 @@ function getBookDetails(isbn, price) {
                 "                </div>\n" +
                 "            </div>\n"
             );
-            
-            
-        
-        var addToCartButton = books.getElementsByClassName('add-cart-btn')
-        for (var i = 0 ; i < addToCartButton.length; i++) {
-            console.log("clicked");
-            var button = addToCartButton[i]
-            button.addEventListener('click',addToCartClicked)
-
-        }
             document.getElementById("books").appendChild(books);
-        });
-    
 
-    }
+            var addToCartButton = books.getElementsByClassName('add-cart-btn')
+            for (var i = 0; i < addToCartButton.length; i++) {
+                console.log("clicked");
+                var button = addToCartButton[i]
+                button.addEventListener('click', addToCartClicked)
+
+            }
+
+        });
+
+
+}
 
 function getEBookLists(isbn) {
     var results = fetch(initbook(isbn))
@@ -306,7 +305,7 @@ function getEBookDetails(isbn) {
                 "                                <input type=\"number\" class=\"form-control text-center\" value=\"1\" min='1' >\n" +
                 "                            </div>\n" +
                 "                            <div class=\"add-cart-btn\">\n" +
-                "                                <a href=\"\" class=\"btn btn-primary\">+ Add to Cart</a>\n" +
+                "                                <div class=\"btn btn-primary\">Add to Cart</div>\n" +
                 "                            </div>\n" +
                 "                        </div>\n" +
                 "                    </div>\n" +
@@ -394,28 +393,49 @@ function getEBookDetails(isbn) {
                 "                </div>\n" +
                 "            </div>\n"
             );
+            document.getElementById("books").appendChild(books);
+
 
             var addToCartButton = books.getElementsByClassName('add-cart-btn')
-        for (var i = 0 ; i < addToCartButton.length; i++) {
-            console.log("clicked");
-            var button = addToCartButton[i]
-            button.addEventListener('click',addToCartClicked)
+            for (var i = 0; i < addToCartButton.length; i++) {
+                console.log("clicked");
+                var button = addToCartButton[i]
+                button.addEventListener('click', addToCartClicked)
 
-        }
-           
-            document.getElementById("books").appendChild(books);
+            }
+
+
         });
 }
 
-function addToCartClicked() {
-
-    localStorage.setItem('isbn', isbn);
-    localStorage.setItem('price', price);
-    alert("Added to Cart");
-    
+function loadCartNumbers() {
+    let nr = localStorage.getItem('cartnr');
+    if (nr) {
+        document.querySelector('.nav-link span').textContent = nr;
+    }
 }
 
+function addToCartClicked() {
+    //alert("Added to Cart");
+    let nr = localStorage.getItem('cartnr');
 
+    nr = parseInt(nr);
+
+    if (nr) {
+        localStorage.setItem('cartnr', nr + 1);
+        document.querySelector('.nav-link span').textContent = nr + 1;
+
+
+    } else { //intialize
+        localStorage.setItem('cartnr', 1);
+        document.querySelector('.nav-link span').textContent = nr;
+        /*
+        localStorage.setItem('isbn', isbn);
+        localStorage.setItem('price', price);
+        localStorage.setItem('eprice', listPrice);
+         */
+    }
+}
 
 
 function findGetParameter(parameterName) { //method to retrieve GET data from url
@@ -430,3 +450,5 @@ function findGetParameter(parameterName) { //method to retrieve GET data from ur
         });
     return result;
 }
+
+loadCartNumbers();
