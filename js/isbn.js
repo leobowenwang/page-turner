@@ -197,12 +197,10 @@ function getBookDetails(isbn, price) {
             document.getElementById("books").appendChild(books);
 
             var addToCartButton = books.getElementsByClassName('add-cart-btn')
-            for (var i = 0; i < addToCartButton.length; i++) {
-                console.log("clicked");
-                var button = addToCartButton[i]
-                button.addEventListener('click', addToCartClicked)
 
-            }
+            var button = addToCartButton[0];
+            button.addEventListener('click', addToCartClicked);
+
 
         });
 
@@ -396,13 +394,10 @@ function getEBookDetails(isbn) {
             document.getElementById("books").appendChild(books);
 
 
-            var addToCartButton = books.getElementsByClassName('add-cart-btn')
-            for (var i = 0; i < addToCartButton.length; i++) {
-                console.log("clicked");
-                var button = addToCartButton[i]
-                button.addEventListener('click', addToCartClicked)
+            let addToCartButton = books.getElementsByClassName('add-cart-btn')
 
-            }
+            var button = addToCartButton[0];
+            button.addEventListener('click', addToCartClicked);
 
 
         });
