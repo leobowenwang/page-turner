@@ -12,7 +12,7 @@ if (isset($_GET['token'])) { //set in URL , authController Line 103 in Body
 
 //we need to check if user not logged in he cannot see the page therefore
 if (!isset($_SESSION['id'])) {
-    header('location: login.php');
+    header('Location: login.php');
     exit();
 }
 ?>
