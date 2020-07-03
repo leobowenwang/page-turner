@@ -72,7 +72,7 @@ margin-left: 950px;
 <div class="px-4 px-lg-0">
     <!-- For demo purpose -->
     <div class="container py-5 text-center">
-        <h1 class="display-4">Shopping cart</h1>
+        <h1 class="display-4">Shopping Cart</h1>
     </div>
     <!-- End -->
 
@@ -201,6 +201,7 @@ margin-left: 950px;
 <script>
     displayCart();
 </script>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/footer.php";
 ?>

@@ -502,6 +502,7 @@ function displayCart() {
                                                             <tr>
                                                                 <th scope="row" class="border-0">
                                                                     <div class="p-2">
+                                                                     <ion-icon name="close-circle-outline"></ion-icon>
                                                                         <img src="https://booksforphysicists.com/static/cover-not-available.f94fb02e99a0.png" alt="" width="70" class="img-fluid shadow-sm">
                                                                         <div class="ml-3 d-inline-block align-middle">
                                                                             <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${item.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">${item.authors}</span>
@@ -533,5 +534,37 @@ function displayCart() {
         `
     }
 }
+
+function removeFromCart (bookobj) {
+    let cartItems = cart.items.reduce(bookobj.items)
+
+    if (cartItems == null) {
+        if (cartItems[bookobj.title] != undefined) {
+            cartItems = {
+                ...cartItems,
+                [bookobj.title]: bookobj
+            }
+        }
+        cartItems[bookobj.title].amount -= 1;
+    } else {
+        bookobj.amount = 0;
+        
+        }
+        let totalcartsize = localStorage.getItem('totalcartsize');
+
+        totalcartsize = parseInt(totalcartsize);
+    
+        if (totalcartsize) {
+            localStorage.setItem('totalcartsize', totalcartsize - 1);
+            document.querySelector('.nav-link span').textContent = totalcartsize - 1;
+        } else { //intialize
+            localStorage.setItem('totalcartsize', 1);
+            document.querySelector('.nav-link span').textContent = totalcartsize;
+        }
+        updateCartSize();
+        totalCost();
+        displayCart();
+}
+
 
 displayCart();
