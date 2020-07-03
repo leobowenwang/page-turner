@@ -5,11 +5,19 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 
 
 
-    <body>
-    <div id="container">
+<body>
+<div class="container">
 
+    <div class="container py-5 text-center">
+        <h1 class="display-4">Results for</h1>
+    </div>
+
+    <div class="card-img-top justify-content-center">
         <p id="result"></p>
-
+    </div>
+    <div class="card-body justify-content-center">
+        <p id="result"></p>
+    </div>
 
 
     <script>
@@ -21,35 +29,38 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 
 
         $(document).ready(function () {
-            var search = sessionStorage.getItem('searchTerm');
+            let search = sessionStorage.getItem('searchTerm');
             if (search == "") {
                 alert("Please enter something in the field");
             }
             else {
-                var url = "";
-                var img = "";
-                var title = "";
-                var author = "";
+                let url = "";
+                let img = "";
+                let title = "";
+                let author = "";
+                let button = "";
                 $.getJSON("https://www.googleapis.com/books/v1/volumes?q=" + search, function (response) {
 
                     for (i = 0; i < response.items.length; i++) {
-                        title = $('<h5 class="center-align white-text">' + response.items[i].volumeInfo.title + '</h5>');
-                        author = $('<h5 class="center-align white-text"> By:' + response.items[i].volumeInfo.authors + '</h5>');
-                        img = $('<img class="aligning card z-depth-5" id="dynamic"><br><a href=' + response.items[i].volumeInfo.infoLink + '><button id="imagebutton" class="btn red aligning">Read More</button></a>');
+                        title = $('<h5 class="text-center">' + response.items[i].volumeInfo.title + '</h5>');
+                        author = $('<h5 class="text-center">' + response.items[i].volumeInfo.authors + '</h5>');
+                        img = $('<img class="img-fluid mx-auto d-block mb-3 mb-md-0" width="130px" ><br>');
+                        button = $('<a href=' + response.items[i].volumeInfo.infoLink + '><button class="btn btn-light mx-auto d-block">Read More</button></a><hr>');
                         url = response.items[i].volumeInfo.imageLinks.thumbnail;
                         img.attr('src', url);
                         title.appendTo('#result');
                         author.appendTo('#result');
                         img.appendTo('#result');
+                        button.appendTo('#result');
                     }
                 });
             }
             return false;
-
         });
     </script>
-    </div>
-    </body>
+
+</div>
+</body>
 
 
 
