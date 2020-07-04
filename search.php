@@ -9,7 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 <div class="container">
 
     <div class="container py-5 text-center">
-        <h1 class="display-4">Results for</h1>
+        <h1 class="display-4">Search Results:</h1>
     </div>
 
     <div class="card-img-top justify-content-center">

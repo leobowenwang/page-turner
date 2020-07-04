@@ -129,7 +129,7 @@ function getBookDetails(isbn, price) {
                 "                    <div class=\"tab-pane fade show active\" id=\"tab-1\" role=\"tabpanel\" aria-labelledby=\"tab1\">\n" +
                 "                        <article class=\"review-article\">\n" +
                 "                            <h1 class=\"sr-only\">Tab Article</h1>\n" +
-                "                            <p>" + description + "</p>\n" +
+                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn + "&isRecension=true" + "'>View Recensions</a>\n'" +
                 "                        </article>\n" +
                 "                    </div>\n" +
                 "                    <div class=\"tab-pane fade\" id=\"tab-2\" role=\"tabpanel\" aria-labelledby=\"tab2\">\n" +
@@ -329,7 +329,7 @@ function getEBookDetails(isbn) {
                 "                    <div class=\"tab-pane fade show active\" id=\"tab-1\" role=\"tabpanel\" aria-labelledby=\"tab1\">\n" +
                 "                        <article class=\"review-article\">\n" +
                 "                            <h1 class=\"sr-only\">Tab Article</h1>\n" +
-                "                            <p>" + description + "</p>\n" +
+                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn + "&isRecension=true" + "'>View Recensions</a>\n'" +
                 "                        </article>\n" +
                 "                    </div>\n" +
                 "                    <div class=\"tab-pane fade\" id=\"tab-2\" role=\"tabpanel\" aria-labelledby=\"tab2\">\n" +
@@ -548,6 +548,103 @@ function removeFromCart (bookobj) {
         updateCartSize();
         //totalCost();
         //displayCart();
+}
+
+//for recensions
+
+let val = findGetParameter('isRecension');
+let value = findGetParameter('isbn');
+if (val) {
+
+    const get = function () { //GET Method
+        let request = new XMLHttpRequest();
+        let url = "./rest.php/recensions/" + value;
+        let asynchronous = true;
+
+        var $orders = $('#orders')
+        request.open("GET", url, asynchronous);
+        request.send();
+
+        request.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let data = JSON.parse(this.responseText);
+                $orders.append('<li style="padding-left: 16px;padding-top: 16px "> <h4>' + data.title + '</h4></li><li style="padding-left: 16px; "><h5>' + data.body + '</h5></li><li style="padding-left: 20px;">By:    Anonymous user </li> <br>');
+                console.log(data);
+            }
+        }
+    }
+
+    const post = function () { //POST method
+        var $name = $('#name');
+        var $text = $('#text');
+        var $orders = $('#orders')
+
+        let recension1 = {
+            title: $name.val(),
+            body: $text.val()
+        };
+
+        let recension_json = JSON.stringify(recension1);
+        $.ajax({
+            type: 'POST',
+            url: "rest.php/recensions/" + value,
+            data: recension_json,
+            success: function () {
+                alert("Use the Get Button to see your Review!");
+            },
+            error: function () {
+                alert("Use Put Button, because there is already a file!");
+            }
+        });
+
+    }
+
+    const put = function () { //PUT method
+        var $name = $('#name');
+        var $text = $('#text');
+        var $orders = $('#orders')
+
+        let recension1 = {
+            title: $name.val(),
+            body: $text.val()
+        };
+
+        let recension_json = JSON.stringify(recension1);
+        $.ajax({
+            type: 'PUT',
+            url: "rest.php/recensions/" + value,
+            data: recension_json,
+            success: function () {
+                alert("Use the Get Button to see your Review!");
+            },
+            error: function () {
+                alert("No file created currently, use the Post Button!");
+            }
+
+        });
+
+    }
+
+    const del = function () { //delete method
+        $.ajax({
+            type: 'DELETE',
+            url: "rest.php/recensions/" + value,
+            complete: function (data) {
+                alert("Please refresh your page!");
+                //location.reload();
+            }
+
+        })
+    }
+
+
+
+
+    $(document).on("click", "#get-btn", get);
+    $(document).on("click", "#post-btn", post); //wann post oder put
+    $(document).on("click", "#put-btn", put);
+    $(document).on("click", "#del-btn", del);
+
 }
 
 
