@@ -1,8 +1,5 @@
 <?php
 
-// Worked with Sandra Vrdoljak
-
-
 // Allow every Webpage to use the service
 header("Access-Control-Allow-Origin: *");
 // Defines the responding Content-Type

@@ -129,71 +129,33 @@ function getBookDetails(isbn, price) {
                 "                    <div class=\"tab-pane fade show active\" id=\"tab-1\" role=\"tabpanel\" aria-labelledby=\"tab1\">\n" +
                 "                        <article class=\"review-article\">\n" +
                 "                            <h1 class=\"sr-only\">Tab Article</h1>\n" +
-                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn + "&isRecension=true" + "'>View Recensions</a>\n'" +
+                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn +"'>View Recensions</a>\n'" +
                 "                        </article>\n" +
                 "                    </div>\n" +
                 "                    <div class=\"tab-pane fade\" id=\"tab-2\" role=\"tabpanel\" aria-labelledby=\"tab2\">\n" +
                 "                        <div class=\"review-wrapper\">\n" +
                 "                            <h2 class=\"title-lg mb--20\"> REVIEWS (" + ratingsCount + ")</h2>\n" +
-                "                            <div class=\"review-comment mb--20\">\n" +
-                "                                <div class=\"text\">\n" +
-                "                                    <div class=\"rating-block mb--15\">\n" + //TODO stars
-                "                                    </div>\n" +
-                "                                    <h6 class=\"author\">ADMIN – <span class=\"font-weight-400\">March 23, 2015</span>\n" +
-                "                                    </h6>\n" +
-                "                                    <p>Lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio\n" +
-                "                                        quis mi.</p>\n" +
-                "                                </div>\n" +
-                "                            </div>\n" +
-                "                            <h2 class=\"title-lg mb--20 pt--15\">ADD A REVIEW</h2>\n" +
-                "                            <div class=\"rating-row pt-2\">\n" +
-                "                                <p class=\"d-block\">Your Rating</p>\n" +
-                "                                <span class=\"rating-widget-block\">\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star1\">\n" +
-                "                                        <label for=\"star1\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star2\">\n" +
-                "                                        <label for=\"star2\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star3\">\n" +
-                "                                        <label for=\"star3\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star4\">\n" +
-                "                                        <label for=\"star4\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star5\">\n" +
-                "                                        <label for=\"star5\"></label>\n" +
-                "                                    </span>\n" +
-                "                                <form action=\"./\" class=\"mt--15 site-form \">\n" +
-                "                                    <div class=\"row\">\n" +
-                "                                        <div class=\"col-12\">\n" +
-                "                                            <div class=\"form-group\">\n" +
-                "                                                <label for=\"message\">Comment</label>\n" +
-                "                                                <textarea name=\"message\" id=\"message\" cols=\"30\" rows=\"5\"\n" +
-                "                                                          class=\"form-control\"></textarea>\n" +
-                "                                            </div>\n" +
-                "                                        </div>\n" +
-                "                                        <div class=\"col-lg-6\">\n" +
-                "                                            <div class=\"form-group\">\n" +
-                "                                                <label for=\"name\">Name *</label>\n" +
-                "                                                <input type=\"text\" id=\"name\" class=\"form-control\">\n" +
-                "                                            </div>\n" +
-                "                                        </div>\n" +
-                "                                        <div class=\"col-lg-6\">\n" +
-                "                                            <div class=\"form-group\">\n" +
-                "                                                <label for=\"email\">Email *</label>\n" +
-                "                                                <input type=\"text\" id=\"email\" class=\"form-control\">\n" +
-                "                                            </div>\n" +
-                "                                        </div>\n" +
-                "                                        <div class=\"col-lg-4\">\n" +
-                "                                            <div class=\"submit-btn\">\n" +
-                "                                                <a href=\"#\" class=\"btn btn-primary\">Post Review</a>\n" +
-                "                                            </div>\n" +
-                "                                        </div>\n" +
-                "                                    </div>\n" +
-                "                                </form>\n" +
-                "                            </div>\n" +
-                "                        </div>\n" +
-                "                    </div>\n" +
-                "                </div>\n" +
-                "            </div>\n"
-            );
+                "    <h1>Book Recension</h1>\n" +
+                "    <hr>\n" +
+                "    <ul style= \" list-style: none; background-color: #ccddff; \"id=\"orders\"></ul>\n" +
+                "\n" +
+                "    <section id=\"control-center\">\n" +
+                "    <button id=\"get-btn\">GET Recensions</button>\n" +
+                "    <hr>\n" +
+                "    <p>title: <input type=\"text\" id=\"name\"></p>\n" +
+                "    <p>text: <input type=\"text\" id=\"text\"></p>\n" +
+                "    <button id=\"post-btn\">POST Recension</button>\n" +
+                "    <button id=\"put-btn\">PUT Recension</button>\n" +
+                "    <button id=\"del-btn\">Delete Recension</button>\n" +
+                "    \n" +
+                "\n" +
+                "  </section>\n" +
+            "                        </div>\n" +
+            "                    </div>\n" +
+            "                </div>\n" +
+            "            </div>\n"
+        )
+            ;
             document.getElementById("books").appendChild(books);
 
             let button = books.getElementsByClassName('add-cart-btn');
@@ -329,7 +291,7 @@ function getEBookDetails(isbn) {
                 "                    <div class=\"tab-pane fade show active\" id=\"tab-1\" role=\"tabpanel\" aria-labelledby=\"tab1\">\n" +
                 "                        <article class=\"review-article\">\n" +
                 "                            <h1 class=\"sr-only\">Tab Article</h1>\n" +
-                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn + "&isRecension=true" + "'>View Recensions</a>\n'" +
+                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn +"'>View Recensions</a>\n'" +
                 "                        </article>\n" +
                 "                    </div>\n" +
                 "                    <div class=\"tab-pane fade\" id=\"tab-2\" role=\"tabpanel\" aria-labelledby=\"tab2\">\n" +
@@ -491,7 +453,6 @@ function displayCart() {
     total = parseFloat(total);
 
 
-
     cartItems = JSON.parse(cartItems);
     let listcontainer = document.querySelector(".product");
     let sumcontainer = document.querySelector(".sum");
@@ -511,7 +472,7 @@ function displayCart() {
                                                                 </th>
                                                                 <td class="border-0 align-middle"><strong>${item.price} €</strong></td>
                                                                 <td class="border-0 align-middle"><strong>${item.amount}</strong></td>
-                                                                <td class="border-0 align-middle"><strong>${(item.price*item.amount).toFixed(2)} €</strong></td>
+                                                                <td class="border-0 align-middle"><strong>${(item.price * item.amount).toFixed(2)} €</strong></td>
                                                             </tr>
                                                             <hr>
 `)
@@ -535,26 +496,25 @@ function displayCart() {
     }
 }
 
-function removeFromCart (bookobj) {
-    
-        let totalcartsize = localStorage.getItem('totalcartsize');
+function removeFromCart(bookobj) {
 
-        totalcartsize = parseInt(totalcartsize);
-    
-        if (totalcartsize) 
-            localStorage.setItem('totalcartsize', totalcartsize - 1);
-            document.querySelector('.nav-link span').textContent = totalcartsize - 1;
-       
-        updateCartSize();
-        //totalCost();
-        //displayCart();
+    let totalcartsize = localStorage.getItem('totalcartsize');
+
+    totalcartsize = parseInt(totalcartsize);
+
+    if (totalcartsize)
+        localStorage.setItem('totalcartsize', totalcartsize - 1);
+    document.querySelector('.nav-link span').textContent = totalcartsize - 1;
+
+    updateCartSize();
+    //totalCost();
+    //displayCart();
 }
 
 //for recensions
 
-let val = findGetParameter('isRecension');
 let value = findGetParameter('isbn');
-if (val) {
+
 
     const get = function () { //GET Method
         let request = new XMLHttpRequest();
@@ -638,14 +598,12 @@ if (val) {
     }
 
 
-
-
     $(document).on("click", "#get-btn", get);
     $(document).on("click", "#post-btn", post); //wann post oder put
     $(document).on("click", "#put-btn", put);
     $(document).on("click", "#del-btn", del);
 
-}
+
 
 
 displayCart();
