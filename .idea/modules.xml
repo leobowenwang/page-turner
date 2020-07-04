@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PageTurner.iml" filepath="$PROJECT_DIR$/.idea/PageTurner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/page-turner.iml" filepath="$PROJECT_DIR$/.idea/page-turner.iml" />
     </modules>
   </component>
 </project>

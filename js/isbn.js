@@ -422,11 +422,9 @@ function totalCost(bookobj) {
 
 function displayCart() {
 
-
     let cartItems = localStorage.getItem('cartlist');
     let total = localStorage.getItem('totalcost');
     total = parseFloat(total);
-
 
     cartItems = JSON.parse(cartItems);
     let listcontainer = document.querySelector(".product");
@@ -463,12 +461,14 @@ function displayCart() {
                             <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
                                 <h5 class="font-weight-bold">${total.toFixed(2)} €</h5>
                             </li>
-                        </ul><a href="#" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to checkout</a>
+                        </ul>
+                        <div id="paypal-button-container"></div>
                     </div>
                 </div>
             </div>
         `
     }
+
 }
 
 function removeFromCart(bookobj) {
@@ -489,6 +489,7 @@ function removeFromCart(bookobj) {
 //for recensions
 
 let value = findGetParameter('isbn');
+
 
     const get = function () { //GET Method
         let request = new XMLHttpRequest();

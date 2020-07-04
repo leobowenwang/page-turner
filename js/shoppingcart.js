@@ -86,8 +86,6 @@ function getCartBooks(isbn, price) {
             for (var i = 0 ; i < quantityElement.length; i++) {
             var input = quantityElement[i];
             input.addEventListener('change', quantityChanged);
-        
-           
             }
 
             function quantityChanged(event) {
