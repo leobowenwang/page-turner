@@ -104,7 +104,7 @@ function getBookDetails(isbn, price) {
                 "                        <span class=\"price ml-3\"><h3>" + price + " €</h3></span>\n" +
                 "                        </div><hr>\n" +
                 "                        </div>\n" +
-                "                        <div class=\"row\">\n" +
+                "                        <div class=\"row ml-1\">\n" +
                 "                            <div class=\"add-cart-btn\">\n" +
                 "                                <div class=\"btn btn-primary\">Add to Cart</div>\n" +
                 "                            </div>\n" +
@@ -129,26 +129,33 @@ function getBookDetails(isbn, price) {
                 "                    <div class=\"tab-pane fade show active\" id=\"tab-1\" role=\"tabpanel\" aria-labelledby=\"tab1\">\n" +
                 "                        <article class=\"review-article\">\n" +
                 "                            <h1 class=\"sr-only\">Tab Article</h1>\n" +
-                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn +"'>View Recensions</a>\n'" +
+                "                            <p>" + description + "</p>\n" +
                 "                        </article>\n" +
                 "                    </div>\n" +
                 "                    <div class=\"tab-pane fade\" id=\"tab-2\" role=\"tabpanel\" aria-labelledby=\"tab2\">\n" +
                 "                        <div class=\"review-wrapper\">\n" +
-                "                            <h2 class=\"title-lg mb--20\"> REVIEWS (" + ratingsCount + ")</h2>\n" +
-                "    <h1>Book Recension</h1>\n" +
-                "    <hr>\n" +
                 "    <ul style= \" list-style: none; background-color: #ccddff; \"id=\"orders\"></ul>\n" +
                 "\n" +
                 "    <section id=\"control-center\">\n" +
-                "    <button id=\"get-btn\">GET Recensions</button>\n" +
+                "    <button id=\"get-btn\" type=\"button\" class=\"btn btn-secondary btn-block\">Load Reviews</button>\n" +
                 "    <hr>\n" +
-                "    <p>title: <input type=\"text\" id=\"name\"></p>\n" +
-                "    <p>text: <input type=\"text\" id=\"text\"></p>\n" +
-                "    <button id=\"post-btn\">POST Recension</button>\n" +
-                "    <button id=\"put-btn\">PUT Recension</button>\n" +
-                "    <button id=\"del-btn\">Delete Recension</button>\n" +
-                "    \n" +
-                "\n" +
+                "                                        <div class=\"col-12\">\n" +
+                "                                            <div class=\"form-group\">\n" +
+                "                                                <label for=\"name\">Title</label>\n" +
+                "                                                <input type=\"text\" id=\"name\" class=\"form-control\">\n" +
+                "                                            </div>\n" +
+                "                                        </div>\n" +
+                "                                        <div class=\"col-12\">\n" +
+                "                                            <div class=\"form-group\">\n" +
+                "                                                <label for=\"name\">Comment</label>\n" +
+                "                                                <textarea name=\"text\" id=\"text\" class=\"form-control\" cols=\"40\" rows=\"5\"></textarea>\n" +
+                "                                            </div>\n" +
+                "                                        </div>\n" +
+                "  <div class=\"row\">\n" +
+                "    <div class=\"col\"><button id=\"post-btn\" type=\"button\" class=\"btn btn-success btn-block\">POST Review</button></div>\n" +
+                "    <div class=\"col\"><button id=\"put-btn\" type=\"button\" class=\"btn btn-primary btn-block\">Change Review</button></div>\n" +
+                "    <div class=\"col\"><button id=\"del-btn\" type=\"button\" class=\"btn btn-danger btn-block\">Delete Review</button></div>\n" +
+                "  </div>\n" +
                 "  </section>\n" +
             "                        </div>\n" +
             "                    </div>\n" +
@@ -266,7 +273,7 @@ function getEBookDetails(isbn) {
                 "                        <span class=\"price ml-3\"><h3>" + listPrice + " €</h3></span>\n" +
                 "                        </div><hr>\n" +
                 "                        </div>\n" +
-                "                        <div class=\"row\">\n" +
+                "                        <div class=\"row ml-1\">\n" +
                 "                            <div class=\"add-cart-btn\">\n" +
                 "                                <div class=\"btn btn-primary\">Add to Cart</div>\n" +
                 "                            </div>\n" +
@@ -291,66 +298,34 @@ function getEBookDetails(isbn) {
                 "                    <div class=\"tab-pane fade show active\" id=\"tab-1\" role=\"tabpanel\" aria-labelledby=\"tab1\">\n" +
                 "                        <article class=\"review-article\">\n" +
                 "                            <h1 class=\"sr-only\">Tab Article</h1>\n" +
-                "                            <p>" + description + "</p>\n" + "<a class=\"btn btn-primary\" href='/page-turner/recension.php?isbn=" + isbn +"'>View Recensions</a>\n'" +
+                "                            <p>" + description + "</p>\n" +
                 "                        </article>\n" +
                 "                    </div>\n" +
                 "                    <div class=\"tab-pane fade\" id=\"tab-2\" role=\"tabpanel\" aria-labelledby=\"tab2\">\n" +
                 "                        <div class=\"review-wrapper\">\n" +
-                "                            <h2 class=\"title-lg mb--20\"> REVIEWS (" + ratingsCount + ")</h2>\n" +
-                "                            <div class=\"review-comment mb--20\">\n" +
-                "                                <div class=\"text\">\n" +
-                "                                    <div class=\"rating-block mb--15\">\n" + //stars
-                "                                    </div>\n" +
-                "                                    <h6 class=\"author\">ADMIN – <span class=\"font-weight-400\">March 23, 2015</span>\n" +
-                "                                    </h6>\n" +
-                "                                    <p>Lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio\n" +
-                "                                        quis mi.</p>\n" +
-                "                                </div>\n" +
-                "                            </div>\n" +
-                "                            <h2 class=\"title-lg mb--20 pt--15\">ADD A REVIEW</h2>\n" +
-                "                            <div class=\"rating-row pt-2\">\n" +
-                "                                <p class=\"d-block\">Your Rating</p>\n" +
-                "                                <span class=\"rating-widget-block\">\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star1\">\n" +
-                "                                        <label for=\"star1\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star2\">\n" +
-                "                                        <label for=\"star2\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star3\">\n" +
-                "                                        <label for=\"star3\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star4\">\n" +
-                "                                        <label for=\"star4\"></label>\n" +
-                "                                        <input type=\"radio\" name=\"star\" id=\"star5\">\n" +
-                "                                        <label for=\"star5\"></label>\n" +
-                "                                    </span>\n" +
-                "                                <form action=\"./\" class=\"mt--15 site-form \">\n" +
-                "                                    <div class=\"row\">\n" +
+                "    <ul style= \" list-style: none; background-color: #ccddff; \"id=\"orders\"></ul>\n" +
+                "\n" +
+                "    <section id=\"control-center\">\n" +
+                "    <button id=\"get-btn\" type=\"button\" class=\"btn btn-secondary btn-block\">Load Reviews</button>\n" +
+                "    <hr>\n" +
                 "                                        <div class=\"col-12\">\n" +
                 "                                            <div class=\"form-group\">\n" +
-                "                                                <label for=\"message\">Comment</label>\n" +
-                "                                                <textarea name=\"message\" id=\"message\" cols=\"30\" rows=\"5\"\n" +
-                "                                                          class=\"form-control\"></textarea>\n" +
-                "                                            </div>\n" +
-                "                                        </div>\n" +
-                "                                        <div class=\"col-lg-6\">\n" +
-                "                                            <div class=\"form-group\">\n" +
-                "                                                <label for=\"name\">Name *</label>\n" +
+                "                                                <label for=\"name\">Title</label>\n" +
                 "                                                <input type=\"text\" id=\"name\" class=\"form-control\">\n" +
                 "                                            </div>\n" +
                 "                                        </div>\n" +
-                "                                        <div class=\"col-lg-6\">\n" +
+                "                                        <div class=\"col-12\">\n" +
                 "                                            <div class=\"form-group\">\n" +
-                "                                                <label for=\"email\">Email *</label>\n" +
-                "                                                <input type=\"text\" id=\"email\" class=\"form-control\">\n" +
+                "                                                <label for=\"name\">Comment</label>\n" +
+                "                                                <textarea name=\"text\" id=\"text\" class=\"form-control\" cols=\"40\" rows=\"5\"></textarea>\n" +
                 "                                            </div>\n" +
                 "                                        </div>\n" +
-                "                                        <div class=\"col-lg-4\">\n" +
-                "                                            <div class=\"submit-btn\">\n" +
-                "                                                <a href=\"#\" class=\"btn btn-primary\">Post Review</a>\n" +
-                "                                            </div>\n" +
-                "                                        </div>\n" +
-                "                                    </div>\n" +
-                "                                </form>\n" +
-                "                            </div>\n" +
+                "  <div class=\"row\">\n" +
+                "    <div class=\"col\"><button id=\"post-btn\" type=\"button\" class=\"btn btn-success btn-block\">POST Review</button></div>\n" +
+                "    <div class=\"col\"><button id=\"put-btn\" type=\"button\" class=\"btn btn-primary btn-block\">Change Review</button></div>\n" +
+                "    <div class=\"col\"><button id=\"del-btn\" type=\"button\" class=\"btn btn-danger btn-block\">Delete Review</button></div>\n" +
+                "  </div>\n" +
+                "  </section>\n" +
                 "                        </div>\n" +
                 "                    </div>\n" +
                 "                </div>\n" +
@@ -514,7 +489,6 @@ function removeFromCart(bookobj) {
 //for recensions
 
 let value = findGetParameter('isbn');
-
 
     const get = function () { //GET Method
         let request = new XMLHttpRequest();
