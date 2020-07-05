@@ -53,7 +53,7 @@ if(isset($_POST['signup-btn'])){ //we take from Post form in signup.php
 
     if(count($errors) === 0){ //if no errors then this
         $password = password_hash($password, PASSWORD_DEFAULT); //for security reasons encryption
-        $token = bin2hex(random_bytes(50)); //generate unique random string for email validation later, couldnt solve
+        $token = bin2hex(random_bytes(50)); //generate unique random string for email validation later
         $verified = false;
 
         $sql = "INSERT INTO users (username, email, verified, token, password) VALUES (?, ?, ?, ?, ?)"; //prepared Statement
@@ -211,10 +211,4 @@ function verifyUser($token){ //gets called in index.php at the beginning
     } else {
         echo 'User not found'; 
     }
-}
-
-function deleteUser(){
-    //load Users
-
-    //select and delete User based on ID
 }
