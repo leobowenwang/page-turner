@@ -462,7 +462,7 @@ function displayCart() {
                                 <h5 class="font-weight-bold">${total.toFixed(2)} €</h5>
                             </li>
                         </ul>
-                        <div id="paypal-button-container"></div>
+                        <div id="paypal-button-container" class="text-center"></div>
                     </div>
                 </div>
             </div>
@@ -482,8 +482,8 @@ function removeFromCart(bookobj) {
     document.querySelector('.nav-link span').textContent = totalcartsize - 1;
 
     updateCartSize();
-    //totalCost();
-    //displayCart();
+    totalCost();
+    displayCart();
 }
 
 //for recensions
