@@ -425,6 +425,7 @@ function displayCart() {
     let cartItems = localStorage.getItem('cartlist');
     let total = localStorage.getItem('totalcost');
     total = parseFloat(total);
+    console.log(typeof total);
 
     cartItems = JSON.parse(cartItems);
     let listcontainer = document.querySelector(".product");
@@ -437,15 +438,23 @@ function displayCart() {
                                                                 <th scope="row" class="border-0">
                                                                     <div class="p-2">
                                                                      <ion-icon name="close-circle-outline" onclick="removeFromCart('${item.title}')" ></ion-icon>
-                                                                        <img src="https://booksforphysicists.com/static/cover-not-available.f94fb02e99a0.png" alt="" width="70" class="img-fluid shadow-sm">
-                                                                        <div class="ml-3 d-inline-block align-middle">
+                                                                        <div class=" d-inline-block align-middle">
                                                                             <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${item.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">${item.authors}</span>
+                                                                              <div class="row">
+                                                                                <div class="col-md-auto">
+                                                                                    <strong>Price: </strong>${item.price}
+                                                                                </div>
+                                                                                <div class="col-md-auto">
+                                                                                    <strong>Quantity: </strong>${item.amount}
+                                                                                </div>
+                                                                                <div class="col-md-auto">
+                                                                                    <strong>Total: </strong>${(item.price * item.amount).toFixed(2)}
+                                                                                </div>
+                                                                              </div>
                                                                         </div>
                                                                     </div>
                                                                 </th>
-                                                                <td class="border-0 align-middle"><strong>${item.price} €</strong></td>
-                                                                <td class="border-0 align-middle"><strong>${item.amount}</strong></td>
-                                                                <td class="border-0 align-middle"><strong>${(item.price * item.amount).toFixed(2)} €</strong></td>
+                                                                
                                                             </tr>
                                                             <hr>
 `)
@@ -474,16 +483,19 @@ function displayCart() {
 function removeFromCart(bookobj) {
 
     let totalcartsize = localStorage.getItem('totalcartsize');
+    let cartlist = localStorage.getItem('cartlist');
 
     totalcartsize = parseInt(totalcartsize);
 
     if (totalcartsize)
-        localStorage.setItem('totalcartsize', totalcartsize - 1);
+    localStorage.setItem('totalcartsize', totalcartsize - 1);
     document.querySelector('.nav-link span').textContent = totalcartsize - 1;
 
+    localStorage.removeItem(cartlist);
+
     updateCartSize();
-    totalCost();
-    displayCart();
+    //totalCost();
+    //displayCart();
 }
 
 //for recensions

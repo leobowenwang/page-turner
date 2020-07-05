@@ -6,9 +6,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 <body>
 <div class="px-4 px-lg-0">
     <!-- For demo purpose -->
-    <div class="container py-5 text-center">
-        <h1 class="display-4">Shopping Cart</h1>
-    </div>
     <!-- End -->
 
     <div class="pb-5">
@@ -22,16 +19,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
                             <thead>
                             <tr>
                                 <th scope="col-6" class="border-0 bg-light">
-                                    <div class="p-2 px-3 text-uppercase">Product</div>
-                                </th>
-                                <th scope="col-2" class="border-0 bg-light">
-                                    <div class="py-2 text-uppercase">Price</div>
-                                </th>
-                                <th scope="col-2" class="border-0 bg-light">
-                                    <div class="py-2 text-uppercase">Quantity</div>
-                                </th>
-                                <th scope="col-2" class="border-0 bg-light">
-                                    <div class="py-2 text-uppercase">Total</div>
+                                    <h3 class="p-2 px-3 text-uppercase text-center">Shopping Cart</h3>
                                 </th>
                             </tr>
                             </thead>
@@ -65,7 +53,8 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: totalCost()
+                        value: total,
+                        currency: 'EUR'
                     }
                 }]
             });
@@ -81,7 +70,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/nav.php";
 </script>
 
 
-<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.1.2/dist/ionicons/ionicons.esm.js"></script>
 
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . "/page-turner/includes/footer.php";
