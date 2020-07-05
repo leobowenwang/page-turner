@@ -439,22 +439,25 @@ function displayCart() {
                                                                     <div class="p-2">
                                                                      <ion-icon name="close-circle-outline" onclick="removeFromCart('${item.title}')" ></ion-icon>
                                                                         <div class=" d-inline-block align-middle">
-                                                                            <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${item.title}</a></h5><span class="text-muted font-weight-normal font-italic d-block">${item.authors}</span>
+                                                                            <h4 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">${item.title}</a></h4><h5 class="text-muted font-weight-normal font-italic d-block">${item.authors}</h5>
                                                                               <div class="row">
-                                                                                <div class="col-md-auto">
-                                                                                    <strong>Price: </strong>${item.price}
+                                                                                <div class="col-lg-auto">
+                                                                                    <strong>Price: </strong>${item.price}<span> €</span>
                                                                                 </div>
-                                                                                <div class="col-md-auto">
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                <div class="col-lg-auto">
                                                                                     <strong>Quantity: </strong>${item.amount}
                                                                                 </div>
-                                                                                <div class="col-md-auto">
-                                                                                    <strong>Total: </strong>${(item.price * item.amount).toFixed(2)}
+                                                                                </div>
+                                                                                <div class="row">
+                                                                                <div class="col-lg-auto">
+                                                                                    <strong>Total: </strong>${(item.price * item.amount).toFixed(2)}<span> €</span>
                                                                                 </div>
                                                                               </div>
                                                                         </div>
                                                                     </div>
                                                                 </th>
-                                                                
                                                             </tr>
                                                             <hr>
 `)
