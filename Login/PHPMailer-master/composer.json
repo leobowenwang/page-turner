@@ -31,7 +31,7 @@
         "ext-filter": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "3.11.0",
+        "friendsofphp/php-cs-fixer": "3.12.0",
         "phpunit/phpunit": "9.5.25",
         "doctrine/annotations": "1.13.3"
     },
